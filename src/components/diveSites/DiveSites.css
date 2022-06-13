@@ -1,0 +1,18 @@
+.divesites { 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.site { 
+    border: 1px solid blue;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.site__header { 
+    font-size: large;
+    font-weight: bold;
+}
