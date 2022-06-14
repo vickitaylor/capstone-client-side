@@ -1,8 +1,11 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { DiveSiteList } from "../diveSites/DiveSiteList"
 import { DiveRequestForm } from "../requests/DiveRequestForm"
+import { RequestEdit } from "../requests/RequestEdit"
+import { RequestList } from "../requests/RequestList"
 
 // component for what will display for clients
+
 export const ClientViews = () => {
 	return (
 		<Routes>
@@ -16,8 +19,11 @@ export const ClientViews = () => {
 			}>
 
 				<Route path="sites" element={ <DiveSiteList /> } />
-				<Route path="request" element={ <DiveRequestForm /> } />
-                
+				<Route path="requests/create" element={ <DiveRequestForm /> } />
+				<Route path="requests" element={ <RequestList /> } />
+				<Route path="requests/:requestId/edit" element={ <RequestEdit /> } />
+                                
+
 			</Route>
 		</Routes>
 	)

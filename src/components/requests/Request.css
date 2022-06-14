@@ -1,0 +1,28 @@
+.dive__requests {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.request {
+    border: 1px solid blue;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.request__header {
+    font-size: large;
+    font-weight: bold;
+}
+
+.btn-edit {
+    margin: 0.5rem;
+    padding: 0.25rem;
+}
+
+.btn-delete {
+    margin: 0.5rem;
+    padding: 0.25rem;
+}

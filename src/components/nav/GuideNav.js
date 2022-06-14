@@ -10,6 +10,10 @@ export const GuideNav = () => {
                 <Link className="navbar__link" to="/sites">Dive Site Locations</Link>
             </li>
 
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/requests">Requests</Link>
+            </li>
+
             {
                 localStorage.getItem("charter_user")
                     ? <li className="navbar__item navbar__logout">

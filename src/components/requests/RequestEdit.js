@@ -1,24 +1,28 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { getSites, saveRequests } from "../ApiManager"
-import "./Request.css"
+import { useNavigate, useParams } from "react-router-dom"
+import { getEditRequests, getSites, saveRequestEdit} from "../ApiManager"
 
+// 🦖🦖🦖do i want to be able to change the cert level???, or just date, site, and comments🦩🦩🦩
 
-export const DiveRequestForm = () => {
+export const RequestEdit = () => {
+    const { requestId } = useParams()
 
-    const localCharterUser = localStorage.getItem("charter_user")
-    const charterUserObject = JSON.parse(localCharterUser)
-    const userId = charterUserObject.id
-
-    const [request, addRequest] = useState({
-        "userId": userId,
-        "diveSiteId": 0,
-        "date": "",
-        "certification": ""
+    const [request, updateRequest] = useState({
+        diveSiteId: 0,
+        date: "",
+        certification: 0,
     })
 
     const [sites, setSites] = useState([])
     const navigate = useNavigate()
+
+    useEffect(
+        () => {
+            getEditRequests(requestId)
+                .then(updateRequest)
+        },
+        [requestId]
+    )
 
     useEffect(() => {
         getSites()
@@ -27,20 +31,20 @@ export const DiveRequestForm = () => {
         []
     )
 
+
     const saveButtonClick = (event) => {
         event.preventDefault()
 
-        saveRequests(request)
+        saveRequestEdit(requestId, request)
             .then(() => {
                 navigate("/requests")
             })
     }
 
 
-
     return (
         <form className="requestForm">
-            <h2 className="requestForm__title">Let's Go Diving! 🤿🐙🦑🦈🐡🐠🐟</h2>
+            <h2 className="requestForm__title">Need to change??🤿🐙🦑🦈🐡🐠🐟</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="site">Site Name:</label>
@@ -48,7 +52,7 @@ export const DiveRequestForm = () => {
                         onChange={(event) => {
                             const copy = { ...request }
                             copy.diveSiteId = parseInt(event.target.value)
-                            addRequest(copy)
+                            updateRequest(copy)
                         }}>
                         <option value="0">Choose Site:</option>
                         {sites.map(site => {
@@ -57,6 +61,7 @@ export const DiveRequestForm = () => {
                     </select>
                 </div>
             </fieldset>
+
 
             <fieldset>
                 <div className="form-group">
@@ -70,13 +75,13 @@ export const DiveRequestForm = () => {
                             (event) => {
                                 const copy = { ...request }
                                 copy.date = event.target.value
-                                addRequest(copy)
+                                updateRequest(copy)
                             }
                         } />
                 </div>
             </fieldset>
 
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <span>Certification Depth:</span>
 
@@ -87,7 +92,7 @@ export const DiveRequestForm = () => {
                             (event) => {
                                 const copy = { ...request }
                                 copy.certification = parseInt(event.target.id)
-                                addRequest(copy)
+                                updateRequest(copy)
                             }} />
                     <label htmlFor="yes">60</label>
                     <input required autoFocus type="radio" className="form-control"
@@ -95,16 +100,42 @@ export const DiveRequestForm = () => {
                             (event) => {
                                 const copy = { ...request }
                                 copy.certification = parseInt(event.target.id)
-                                addRequest(copy)
+                                updateRequest(copy)
                             }} />
                     <label htmlFor="no">130</label>
+                </div>
+            </fieldset> */}
+
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="comments">Comments: </label>
+                    <textarea
+                        required autoFocus
+                        type="text"
+                        style={{
+                            height: "10rem"
+                        }}
+                        className="form-control"
+                        placeholder="Comments for change"
+                        value={request.comments}
+                        onChange={
+                            (event) => {
+                                const copy = { ...request }
+                                copy.comments = event.target.value
+                                updateRequest(copy)
+                            }
+                        }> Add some comments</textarea>
                 </div>
             </fieldset>
 
             <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                Request Dive
+                Make Changes
             </button>
-        </form>
+
+        </form >
     )
 }
+
+
+

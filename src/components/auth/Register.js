@@ -5,7 +5,7 @@ import "./Login.css"
 export const Register = (props) => {
     const [customer, setCustomer] = useState({
         email: "",
-        fullName: "",
+        name: "",
         isStaff: false
     })
     let navigate = useNavigate()
@@ -58,9 +58,9 @@ export const Register = (props) => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for //App Name Goes Here//</h1>
                 <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
+                    <label htmlFor="name"> Full Name </label>
                     <input onChange={updateCustomer}
-                           type="text" id="fullName" className="form-control"
+                           type="text" id="name" className="form-control"
                            placeholder="Enter your first and last name" required autoFocus />
                 </fieldset>
                 <fieldset>

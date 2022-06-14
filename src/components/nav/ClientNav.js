@@ -11,7 +11,11 @@ export const ClientNav = () => {
             </li>
 
             <li className="navbar__item">
-                <Link className="navbar__link" to="/request">I Want to go Diving</Link>
+                <Link className="navbar__link" to="/requests/create">I Want to go Diving</Link>
+            </li>
+
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/requests">Requests</Link>
             </li>
 
             {
