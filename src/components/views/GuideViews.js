@@ -22,7 +22,6 @@ export const GuideViews = () => {
 				<Route path="sites/create" element={< AddSiteForm />} />
                 <Route path="requests" element={ <RequestList /> } />
                 <Route path="requests/:assignId/assign" element={ <RequestAssign /> } />
-
 			</Route>
 		</Routes>
 	)

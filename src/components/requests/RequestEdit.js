@@ -124,7 +124,7 @@ export const RequestEdit = () => {
                                 copy.comments = event.target.value
                                 updateRequest(copy)
                             }
-                        }> Add some comments</textarea>
+                        }>Reason for change...</textarea>
                 </div>
             </fieldset>
 

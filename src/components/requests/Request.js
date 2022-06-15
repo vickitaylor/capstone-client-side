@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { deleteRequest } from "../ApiManager"
 
 
-export const Request = ({ requestObj, getAllRequests, currentUser }) => {
-
+export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => {
 
     const navigate = useNavigate()
 
@@ -17,8 +17,12 @@ export const Request = ({ requestObj, getAllRequests, currentUser }) => {
             className="request__delete">Delete</button>
     }
 
-
-
+    let assignedGuide = null
+    if (requestObj.assignedDives.length >0) {
+        const reqEmpRel = requestObj.assignedDives[0]
+        assignedGuide = guides.find(guide => guide.id === reqEmpRel.guideId)
+    }
+    
     return (
         <>
             {
@@ -32,12 +36,28 @@ export const Request = ({ requestObj, getAllRequests, currentUser }) => {
                         <div>Location: {requestObj?.diveSite?.name}</div>
                         <div>Date: {new Date(requestObj.date).toLocaleDateString()}</div>
                         <div>Price: {requestObj?.diveSite?.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
-                        <div> Change Comments: {requestObj.comments}</div>
+                        <div>
+                            {
+                            requestObj.comments !== "" 
+                            ? `Change Comments: ${requestObj.comments}`
+                            : ""
+                            } 
+                            </div>
 
-                        <button onClick={() => navigate("/requests/assign")}>Assign Request</button>
-                        {
-                            deleteButton()
-                        }
+                        <div className="request__guide">
+                            {
+                                requestObj.assignedDives.length
+                                    ? `Assigned To: ${assignedGuide !== null ? assignedGuide?.user?.name : ""}`
+                                    : <button className="btn" onClick={() => navigate(`/requests/${requestObj.id}/assign`)}>Assign Request</button>
+                            }
+                        </div>
+
+                        <div className="btn">
+                            {
+                                deleteButton()
+                            }
+                        </div>
+
                     </section>
 
                     :
@@ -46,8 +66,15 @@ export const Request = ({ requestObj, getAllRequests, currentUser }) => {
                         <header className="request__header">Location: {requestObj?.diveSite?.name}</header>
                         <div>Date: {new Date(requestObj.date).toLocaleDateString()}</div>
                         <div>Price: {requestObj?.diveSite?.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
+                        <div className="request__guide">
+                            {
+                                requestObj.assignedDives.length
+                                    ? `Assigned To: ${assignedGuide !== null ? assignedGuide?.user?.name : ""}`
+                                    : ""
+                            }
+                        </div>
 
-                        <button onClick={() => navigate(`/requests/${requestObj.id}/edit`)}>Edit</button>
+                        <button className="btn" onClick={() => navigate(`/requests/${requestObj.id}/edit`)}>Edit</button>
                         {
                             deleteButton()
                         }

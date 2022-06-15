@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getRequests } from "../ApiManager"
+import { getRequests, getGuides } from "../ApiManager"
 import { Request } from "./Request"
 
 import "./Request.css"
@@ -8,6 +8,7 @@ export const RequestList = () => {
 
     const [requests, setRequests] = useState([])
     const [filteredRequests, setFiltered] = useState([])
+    const [guides, setGuides] = useState([])
 
     const localCharterUser = localStorage.getItem("charter_user")
     const charterUserObject = JSON.parse(localCharterUser)
@@ -15,10 +16,14 @@ export const RequestList = () => {
     useEffect(() => {
         getRequests()
             .then(setRequests)
+        
+            getGuides()
+            .then(setGuides)
     },
         []
     )
 
+    // function to rerender the list
     const getAllRequests = () => {
         getRequests()
             .then(setRequests)
@@ -46,6 +51,7 @@ export const RequestList = () => {
                         getAllRequests={getAllRequests}
                         requestObj={request}
                         currentUser={charterUserObject}
+                        guides={guides}
                     />
                     )
                 }

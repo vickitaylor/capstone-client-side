@@ -14,7 +14,8 @@ export const DiveRequestForm = () => {
         "userId": userId,
         "diveSiteId": 0,
         "date": "",
-        "certification": ""
+        "certification": "",
+        "comments": ""
     })
 
     const [sites, setSites] = useState([])
