@@ -15,7 +15,8 @@ export const DiveRequestForm = () => {
         "diveSiteId": 0,
         "date": "",
         "certification": "",
-        "comments": ""
+        "comments": "",
+        "completed": false
     })
 
     const [sites, setSites] = useState([])
@@ -43,7 +44,7 @@ export const DiveRequestForm = () => {
         <form className="requestForm">
             <h2 className="requestForm__title">Let's Go Diving! 🤿🐙🦑🦈🐡🐠🐟</h2>
             <fieldset>
-                <div className="form-group">
+                <div className="req-form-group">
                     <label htmlFor="site">Site Name:</label>
                     <select id="site" required autoFocus
                         onChange={(event) => {
@@ -60,11 +61,11 @@ export const DiveRequestForm = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="req-form-group">
                     <label htmlFor="date">Date:</label>
                     <input type="date"
                         required autoFocus
-                        className="form-control"
+                        className="req-form-control"
                         placeholder="Pick a date"
                         value={request.date}
                         onChange={
@@ -78,10 +79,10 @@ export const DiveRequestForm = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="req-form-group">
                     <span>Certification Depth:</span>
 
-                    <input required autoFocus type="radio" className="form-control"
+                    <input required autoFocus type="radio" className="req-form-control"
                         name="certification" id="60"
                         value={request.certification}
                         onChange={
@@ -91,7 +92,7 @@ export const DiveRequestForm = () => {
                                 addRequest(copy)
                             }} />
                     <label htmlFor="yes">60</label>
-                    <input required autoFocus type="radio" className="form-control"
+                    <input required autoFocus type="radio" className="req-form-control"
                         name="certification" id="130" value={request.certification} onChange={
                             (event) => {
                                 const copy = { ...request }

@@ -14,14 +14,18 @@ export const RequestList = () => {
     const charterUserObject = JSON.parse(localCharterUser)
 
     useEffect(() => {
-        getRequests()
-            .then(setRequests)
         
-            getGuides()
-            .then(setGuides)
+        // guides array is completly populated before the requests come back
+        getGuides()
+        .then((guides)=> {
+            setGuides(guides)
+            getRequests()
+                .then(setRequests)
+        })
     },
         []
     )
+    
 
     // function to rerender the list
     const getAllRequests = () => {
@@ -41,9 +45,30 @@ export const RequestList = () => {
         [requests]
     )
 
+
+
+    // useEffect(() => {
+    //     if (charterUserObject.staff) {
+    //         const guideRequests = requests.filter(request => request.guideId === charterUserObject.id)
+    //         setFiltered(guideRequests)
+    //     }
+    // },
+    //     [requests]
+    // )
+
+
     return (
         <>
             <h2>Dive Requests</h2>
+            {
+                charterUserObject.staff
+                    ?<> 
+                    <button className="btn__requests">Show Mine</button>
+                    <button className="btn__requests">Show All</button>
+                    </>
+                    : ""
+
+            }
 
             <article className="requests">
                 {

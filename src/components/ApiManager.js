@@ -5,7 +5,7 @@ export const getSites = () => {
 }
 
 export const getRequests = () => {
-    return fetch(`http://localhost:8088/diveRequests?_expand=user&_expand=diveSite&_embed=assignedDives`)
+    return fetch(`http://localhost:8088/diveRequests?_expand=user&_expand=diveSite&_embed=assignedDives&_sort=date`)
         .then(res => res.json())
 }
 
@@ -80,9 +80,22 @@ export const saveRequestEdit = (requestId, request) => {
         .then(res => res.json())
 }
 
+export const saveCompletedRequest = (requestObj, reqComplete) => {
+    return fetch(`http://localhost:8088/diveRequests/${requestObj.id}`, 
+    {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reqComplete)
+    })
+    .then(res => res.json())
+}
+
 // DELETE requests 
 export const deleteRequest = (requestObj) => {
     return fetch(`http://localhost:8088/diveRequests/${requestObj.id}`, {
         method: "DELETE",
     })
 }
+
