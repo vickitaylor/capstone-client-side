@@ -14,8 +14,8 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
             if (guides.length) {
                 let assignedGuide = null
                 if (requestObj.assignedDives.length > 0) {
-                    const reqEmpRel = requestObj.assignedDives[0]
-                    assignedGuide = guides.find(guide => guide.id === reqEmpRel.guideId)
+                    const reqGuideRel = requestObj.assignedDives[0]
+                    assignedGuide = guides.find(guide => guide.id === reqGuideRel.guideId)
                     setAssignedGuide(assignedGuide)
                 }
                 const userGuide = guides.find(guide => guide.userId === currentUser.id)
@@ -46,7 +46,6 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
             return ""
         }
     }
-
 
     const closeRequest = () => {
         const reqComplete = {
@@ -89,9 +88,13 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                             }
                         </div>
 
-                        {
-                            deleteButton()
-                        }
+                        <div>
+                            {
+                                requestObj.completed !== true
+                                ? deleteButton()
+                                : ""
+                            }
+                        </div>
 
 
                         {
@@ -131,3 +134,4 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
     )
 }
 
+ 
