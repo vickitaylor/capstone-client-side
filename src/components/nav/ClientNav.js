@@ -18,6 +18,10 @@ export const ClientNav = () => {
                 <Link className="navbar__link" to="/requests">Requests</Link>
             </li>
 
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/completed">Completed Dives</Link>
+            </li>
+
             {
                 localStorage.getItem("charter_user")
                     ? <li className="navbar__item navbar__logout">

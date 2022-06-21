@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { getSites } from "../ApiManager"
 import "./DiveSites.css"
 
+
 export const DiveSiteList = () => {
 
     const [sites, setSites] = useState([])
@@ -34,10 +35,19 @@ export const DiveSiteList = () => {
                 {
                     sites.map(site => {
                         return <section className="site" key={`site--${site.id}`}>
-                            <header className="site__header">{site.name}</header>
-                            <div>Depth: {site.depth}</div>
-                            <div>Price: {site.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
-                            <div>{site.description}</div>
+                            <div className="flip-card">
+                                <div className="flip-card-inner">
+                                    <div className="flip-card-front">
+                                        <img className="photos" src={site.url} alt={site.name} />
+                                    </div>
+                                    <div className="flip-card-back">
+                                        <header className="site__header">{site.name}</header>
+                                        <div>Depth: {site.depth}</div>
+                                        <div>Price: {site.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
+                                        <div>{site.description}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
                     })
                 }

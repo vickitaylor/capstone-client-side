@@ -7,9 +7,11 @@
 
 
 .request {
-    border: 1px solid blue;
+    /* border: 1px solid aqua; */
     margin: 1rem;
     padding: 1rem;
+    background-color: #c2e3e7;
+    opacity: 85%;
 }
 
 .request__header {

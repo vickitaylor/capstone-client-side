@@ -9,7 +9,8 @@ export const AddSiteForm = () => {
         name: "",
         price: "",
         depth: "",
-        description: ""
+        description: "", 
+        url: ""
     })
 
     const navigate = useNavigate()
@@ -101,11 +102,36 @@ export const AddSiteForm = () => {
                         } />
                 </div>
             </fieldset>
+            
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description">Photo URL:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Add URL for photo"
+                        value={site.url}
+                        onChange={
+                            (event) => {
+                                const copy = { ...site }
+                                copy.url = event.target.value
+                                addSite(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
 
             <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
                 className="btn btn-primary">
                 Add New Site!!
             </button>
+
+            <button onClick={() => navigate("/sites")}
+                className="btn btn-primary">
+                Cancel
+            </button>
+
         </form>
     )
 

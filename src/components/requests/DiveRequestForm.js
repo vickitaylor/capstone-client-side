@@ -107,6 +107,11 @@ export const DiveRequestForm = () => {
                 className="btn btn-primary">
                 Request Dive
             </button>
+
+            <button onClick={() => navigate("/requests")}
+                className="btn btn-primary">
+                Cancel
+            </button>
         </form>
     )
 }

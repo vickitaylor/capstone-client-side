@@ -4,17 +4,16 @@ import { AddSiteForm } from "../diveSites/AddSiteForm"
 import { DiveSiteList } from "../diveSites/DiveSiteList"
 import { RequestAssign } from "../requests/RequestAssign"
 import { RequestList } from "../requests/RequestList"
-// import { ShowMine } from "../requests/ShowMine"
+
 
 // component for what will display for guides.
-
 export const GuideViews = () => {
 	return (
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>// App name goes here?? //</h1>
-					<div>//?? putting stuff here?? // </div>
+					<h1>Shark Bait Charters</h1>
+					<div>Everyone loves Shark Bait!</div>
 
 					<Outlet />
 				</>

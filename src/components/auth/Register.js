@@ -56,17 +56,17 @@ export const Register = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for //App Name Goes Here//</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for Shark Bait Charters</h1>
                 <fieldset>
                     <label htmlFor="name"> Full Name </label>
                     <input onChange={updateCustomer}
-                           type="text" id="name" className="form-control"
+                           type="text" id="name" className="form-control logon"
                            placeholder="Enter your first and last name" required autoFocus />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateCustomer}
-                        type="email" id="email" className="form-control"
+                        type="email" id="email" className="form-control logon"
                         placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
@@ -80,6 +80,9 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>
+                    <button className="cancel-btn" onClick={() => navigate("/login")}>
+                Cancel
+            </button>
                 </fieldset>
             </form>
         </main>

@@ -34,6 +34,11 @@ export const getUsers = () => {
     .then(res => res.json())
 }
 
+export const getCompletedDives = () => {
+    return fetch(`http://localhost:8088/diveRequests?_expand=diveSite&&_expand=user&completed=true`)
+    .then(res => res.json())
+}
+
 // POST requests 
 export const saveSites = (sites) => {
     return fetch(`http://localhost:8088/diveSites`, {

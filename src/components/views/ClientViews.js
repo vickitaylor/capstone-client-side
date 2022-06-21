@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { CompletedDives } from "../completedDives/CompletedDives"
 import { DiveSiteList } from "../diveSites/DiveSiteList"
 import { DiveRequestForm } from "../requests/DiveRequestForm"
 import { RequestEdit } from "../requests/RequestEdit"
@@ -11,8 +12,8 @@ export const ClientViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>// App name goes here??// </h1>
-					<div>//?? putting stuff here?? // </div>
+					<h1>Shark Bait Charters </h1>
+					<div>Come dive with us!</div>
 
 					<Outlet />
 				</>
@@ -22,8 +23,8 @@ export const ClientViews = () => {
 				<Route path="requests/create" element={ <DiveRequestForm /> } />
 				<Route path="requests" element={ <RequestList /> } />
 				<Route path="requests/:requestId/edit" element={ <RequestEdit /> } />
-                                
-
+				<Route path="completed" element={ <CompletedDives />} />
+				
 			</Route>
 		</Routes>
 	)
