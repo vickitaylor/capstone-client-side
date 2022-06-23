@@ -4,6 +4,8 @@ import { AddSiteForm } from "../diveSites/AddSiteForm"
 import { DiveSiteList } from "../diveSites/DiveSiteList"
 import { RequestAssign } from "../requests/RequestAssign"
 import { RequestList } from "../requests/RequestList"
+import { EditSiteList } from "../diveSites/EditSiteList"
+import { Home } from "../home/Home"
 
 
 // component for what will display for guides.
@@ -12,18 +14,21 @@ export const GuideViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>Shark Bait Charters</h1>
-					<div>Everyone loves Shark Bait!</div>
+					<h1>Shark Bait Dive Charters</h1>
+					<div>Everyone loves diving with Shark Bait!</div>
 
 					<Outlet />
+
 				</>
 			}>
 
 				<Route path="sites" element={< DiveSiteList />} />
 				<Route path="sites/create" element={< AddSiteForm />} />
-                <Route path="requests" element={ <RequestList /> } />
-                <Route path="requests/:assignId/assign" element={ <RequestAssign /> } />
-                <Route path="mine" element={ <AssignedToMe /> } />
+				<Route path="requests" element={<RequestList />} />
+				<Route path="requests/:assignId/assign" element={<RequestAssign />} />
+				<Route path="mine" element={<AssignedToMe />} />
+				<Route path="sites/:siteId/edit" element={<EditSiteList />} />
+				<Route path="home" element={ <Home />} />
 
 			</Route>
 		</Routes>

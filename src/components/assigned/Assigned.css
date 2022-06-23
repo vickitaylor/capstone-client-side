@@ -1,18 +1,21 @@
-.dive__requests {
+.all-assigned {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-
-.request {
-    /* border: 1px solid aqua; */
+.assigned {
     margin: 1rem;
     padding: 1rem;
+    background-color: #c2e3e7;
+    opacity: 85%;
+    width: auto;
+    height: auto;
+    border-radius: .25rem;
 }
 
-.request__header {
+.assigned__header {
     font-size: large;
     font-weight: bold;
 }

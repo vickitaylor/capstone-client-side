@@ -16,7 +16,8 @@ export const DiveRequestForm = () => {
         "date": "",
         "certification": "",
         "comments": "",
-        "completed": false
+        "completed": false, 
+        "completedComments": ""
     })
 
     const [sites, setSites] = useState([])
@@ -41,77 +42,80 @@ export const DiveRequestForm = () => {
 
 
     return (
-        <form className="requestForm">
+        <section className="requestForm-all">
             <h2 className="requestForm__title">Let's Go Diving! 🤿🐙🦑🦈🐡🐠🐟</h2>
-            <fieldset>
-                <div className="req-form-group">
-                    <label htmlFor="site">Site Name:</label>
-                    <select id="site" required autoFocus
-                        onChange={(event) => {
-                            const copy = { ...request }
-                            copy.diveSiteId = parseInt(event.target.value)
-                            addRequest(copy)
-                        }}>
-                        <option value="0">Choose Site:</option>
-                        {sites.map(site => {
-                            return <option value={site.id} key={`site--${site.id}`}>{site.name}</option>
-                        })}
-                    </select>
-                </div>
-            </fieldset>
 
-            <fieldset>
-                <div className="req-form-group">
-                    <label htmlFor="date">Date:</label>
-                    <input type="date"
-                        required autoFocus
-                        className="req-form-control"
-                        placeholder="Pick a date"
-                        value={request.date}
-                        onChange={
-                            (event) => {
+            <form className="requestForm">
+                <fieldset className="fieldset-req">
+                    <div className="form-control-req">
+                        <label className="label-req" htmlFor="site">Site Name:</label>
+                        <select className="select" id="site" required autoFocus
+                            onChange={(event) => {
                                 const copy = { ...request }
-                                copy.date = event.target.value
+                                copy.diveSiteId = parseInt(event.target.value)
                                 addRequest(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
+                            }}>
+                            <option value="0">Choose Site:</option>
+                            {sites.map(site => {
+                                return <option value={site.id} key={`site--${site.id}`}>{site.name}</option>
+                            })}
+                        </select>
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <div className="req-form-group">
-                    <span>Certification Depth:</span>
+                <fieldset className="fieldset-req">
+                    <div className="form-control-req">
+                        <label className="label-req" htmlFor="date">Date:</label>
+                        <input type="date"
+                            required autoFocus
+                            className="req-form-control"
+                            placeholder="Pick a date"
+                            value={request.date}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...request }
+                                    copy.date = event.target.value
+                                    addRequest(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
 
-                    <input required autoFocus type="radio" className="req-form-control"
-                        name="certification" id="60"
-                        value={request.certification}
-                        onChange={
-                            (event) => {
-                                const copy = { ...request }
-                                copy.certification = parseInt(event.target.id)
-                                addRequest(copy)
-                            }} />
-                    <label htmlFor="yes">60</label>
-                    <input required autoFocus type="radio" className="req-form-control"
-                        name="certification" id="130" value={request.certification} onChange={
-                            (event) => {
-                                const copy = { ...request }
-                                copy.certification = parseInt(event.target.id)
-                                addRequest(copy)
-                            }} />
-                    <label htmlFor="no">130</label>
-                </div>
-            </fieldset>
+                <fieldset className="fieldset-req">
+                    <div className="form-control-req">
+                        <label className="label-req">Certification Depth:</label>
 
-            <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
-                className="btn btn-primary">
-                Request Dive
-            </button>
+                        <input required autoFocus type="radio" className="req-form-control"
+                            name="certification" id="60"
+                            value={request.certification}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...request }
+                                    copy.certification = parseInt(event.target.id)
+                                    addRequest(copy)
+                                }} />
+                        <label htmlFor="yes">60</label>
+                        <input required autoFocus type="radio" className="req-form-control"
+                            name="certification" id="130" value={request.certification} onChange={
+                                (event) => {
+                                    const copy = { ...request }
+                                    copy.certification = parseInt(event.target.id)
+                                    addRequest(copy)
+                                }} />
+                        <label htmlFor="no">130</label>
+                    </div>
+                </fieldset>
 
-            <button onClick={() => navigate("/requests")}
-                className="btn btn-primary">
-                Cancel
-            </button>
-        </form>
+                <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
+                    className="btn-rf">
+                    Request Dive
+                </button>
+
+                <button onClick={() => navigate("/requests")}
+                    className="btn-rf">
+                    Cancel
+                </button>
+            </form>
+        </section>
     )
 }

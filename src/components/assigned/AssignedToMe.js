@@ -31,7 +31,7 @@ export const AssignedToMe = () => {
             <h2>Dives Assigned To Me</h2>
             <button onClick={() => navigate("/requests")}>Show All</button>
 
-            <article className="requests">
+            <article className="all-assigned">
                 {
                     requests.map((request) => <Assigned key={`request--${request.id}`}
                         requestObj={request}

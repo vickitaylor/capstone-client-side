@@ -34,12 +34,12 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                     getAllRequests()
                 })
         }}
-            className="request__delete">Delete</button>
+            className="btn__requests">Delete</button>
     }
 
     const completeRequest = () => {
         if (userGuide.id === assignedGuide.id && requestObj.completed === false) {
-            return <button className="btn__finish"
+            return <button className="btn__requests"
                 onClick={closeRequest}
             >Dive Completed</button>
         } else {
@@ -54,7 +54,8 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
             date: requestObj.date,
             certification: requestObj.certification,
             comments: requestObj.comments,
-            completed: true
+            completed: true,
+            completedComments: requestObj.completedComments
         }
 
         saveCompletedRequest(requestObj, reqComplete)
@@ -84,22 +85,19 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                             {
                                 requestObj.assignedDives.length
                                     ? `Assigned To: ${assignedGuide !== null ? assignedGuide?.user?.name : ""}`
-                                    : <button className="btn" onClick={() => navigate(`/requests/${requestObj.id}/assign`)}>Assign Request</button>
+                                    : <button className="btn__requests" onClick={() => navigate(`/requests/${requestObj.id}/assign`)}>Assign Request</button>
                             }
                         </div>
-
                         <div>
                             {
                                 requestObj.completed !== true
-                                ? deleteButton()
-                                : ""
+                                    ? deleteButton()
+                                    : `Dive Completed`
+                            }
+                            {
+                                completeRequest()
                             }
                         </div>
-
-
-                        {
-                            completeRequest()
-                        }
 
                     </section>
 
@@ -121,7 +119,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                                 requestObj.completed
                                     ? `Dive Completed`
                                     : <>
-                                        <button className="btn" onClick={() => navigate(`/requests/${requestObj.id}/edit`)}>Edit</button>
+                                        <button className="btn__requests" onClick={() => navigate(`/requests/${requestObj.id}/edit`)}>Edit</button>
                                         {
                                             deleteButton()
                                         }
@@ -134,4 +132,3 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
     )
 }
 
- 

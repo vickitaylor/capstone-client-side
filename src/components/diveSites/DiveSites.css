@@ -6,32 +6,71 @@
 }
 
 .site {
-    /* border: 1px solid aqua; */
     margin: 1rem;
     padding: 1rem;
     background-color: #c2e3e7;
     opacity: 85%;
+    border-radius: .5rem;
 }
 
 .site__header {
     font-size: large;
     font-weight: bold;
+    text-align: center;
 }
 
 .photos {
-    width: 300px;
-    height: 300px;
+    width: 22rem;
+    height: 22rem;
+    border-radius: .25rem;
 }
 
 
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+/* dive form */
+.label {
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.siteForm {
+    padding: 1rem;
+    background-color: #c2e3e7;
+    opacity: 85%;
+    width: 32rem;
+    height: auto;
+    border-radius: .5rem;
+}
+
+.btn-ds {
+    padding: 0.25rem;
+    margin: 0.5rem 1rem 0 0;
+}
+
+.form-control-site {
+    width: 30rem;
+    display: block;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+/* flipcards */
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect, removed border */
 .flip-card {
     background-color: transparent;
-    width: 300px;
-    height: 300px;
-    border: 1px solid #f1f1f1;
+    width: 22rem;
+    height: 22rem;
     perspective: 1000px;
-    /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
@@ -42,6 +81,7 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    border-radius: .25rem;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -52,6 +92,7 @@
 /* Position the front and back side */
 .flip-card-front,
 .flip-card-back {
+    border-radius: .25rem;
     position: absolute;
     width: 100%;
     height: 100%;

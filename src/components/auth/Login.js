@@ -7,6 +7,7 @@ export const Login = () => {
     const [email, set] = useState("tuna@turner.com")
     const navigate = useNavigate()
 
+    
     const handleLogin = (e) => {
         e.preventDefault()
 
@@ -18,9 +19,17 @@ export const Login = () => {
                     localStorage.setItem("charter_user", JSON.stringify({
                         id: user.id,
                         staff: user.isStaff
-                    }))
-
-                    navigate("/")
+                    })) 
+                    
+                    const localCharterUser = localStorage.getItem("charter_user")
+                    const charterUserObject = JSON.parse(localCharterUser)
+                    {
+                        charterUserObject.staff
+                  
+                        ? navigate("/requests")
+                        : navigate("/home")
+                    }
+                       
                 }
                 else {
                     window.alert("Invalid login")
@@ -54,6 +63,6 @@ export const Login = () => {
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
-    )
+    ) 
 }
 

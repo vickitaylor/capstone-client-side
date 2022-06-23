@@ -39,6 +39,11 @@ export const getCompletedDives = () => {
     .then(res => res.json())
 }
 
+export const getEditSites = (siteId) => {
+    return fetch(`http://localhost:8088/diveSites/${siteId}`)
+        .then(res => res.json())
+}
+
 // POST requests 
 export const saveSites = (sites) => {
     return fetch(`http://localhost:8088/diveSites`, {
@@ -95,6 +100,17 @@ export const saveCompletedRequest = (requestObj, reqComplete) => {
         body: JSON.stringify(reqComplete)
     })
     .then(res => res.json())
+}
+
+export const saveSiteEdit = (siteId, site) => {
+    return fetch(`http://localhost:8088/diveSites/${siteId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(site)
+    })
+        .then(res => res.json())
 }
 
 // DELETE requests 

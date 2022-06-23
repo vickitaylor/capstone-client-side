@@ -8,9 +8,11 @@ export const RequestList = () => {
     const [requests, setRequests] = useState([])
     const [filteredRequests, setFiltered] = useState([])
     const [guides, setGuides] = useState([])
+    const [completed, setNotComplete] = useState(true)
 
     const localCharterUser = localStorage.getItem("charter_user")
     const charterUserObject = JSON.parse(localCharterUser)
+  
 
     useEffect(() => {
 
@@ -43,11 +45,28 @@ export const RequestList = () => {
         [requests]
     )
 
-
-
+        useEffect(() => {
+        if(completed === false) {
+            const openRequests = requests.filter(request => request.completed === false ) 
+            setFiltered(openRequests)
+        } else {
+            setFiltered(requests)
+        } 
+    },
+    [completed]
+    )
+ 
     return (
         <>
-            <h2>Dive Requests</h2>
+            {
+                charterUserObject.staff
+                ? <>
+                <h2>Dive Requests</h2>
+                <button className="btn" onClick={() => setNotComplete(true)}>Show All</button>
+                <button className="btn" onClick={() => setNotComplete(false)}>Show Dives Not Completed</button>
+                </>
+                : <h2>My Dive Requests</h2>
+            }
 
             <article className="requests">
                 {

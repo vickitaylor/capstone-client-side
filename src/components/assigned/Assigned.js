@@ -20,13 +20,24 @@ export const Assigned = ({ requestObj, currentUser, guides }) => {
         },
         [guides, currentUser, requestObj]
     )
-    
-    const showStuff = () => {
-        if (userGuide.id === assignedGuide.id ) {
-            return <section className="request" key={`request--${requestObj.id}`}>
-                <header className="request__header">{requestObj?.user?.name}</header>
+
+     const showStuff = () => {
+        if (userGuide.id === assignedGuide.id) {
+            return <section className="assigned" key={`request--${requestObj.id}`}>
+                <header className="assigned__header">{requestObj?.user?.name}</header>
                 <div>Location: {requestObj?.diveSite?.name}</div>
                 <div>Date: {new Date(requestObj.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
+                <div>
+                    {
+                        requestObj.completed
+                        ? 
+                        <>
+                        <div>Dive Completed</div>
+                        <div>Guide Compensation: {((requestObj?.diveSite?.price)/2).toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
+                        </>
+                            : ""
+                    }
+                </div>
             </section>
         } else {
             return ""
@@ -35,9 +46,9 @@ export const Assigned = ({ requestObj, currentUser, guides }) => {
 
     return (
         <>
-          {
-            showStuff()
-          }
+            {
+                showStuff()
+            }
 
         </>
     )

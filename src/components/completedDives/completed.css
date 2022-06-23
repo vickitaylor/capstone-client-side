@@ -1,4 +1,4 @@
-.completed { 
+.completed {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -6,5 +6,12 @@
 }
 
 .complete {
-    border: 1px solid blueviolet;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #c2e3e7;
+    border: 1px #0da5b6 solid;
+    opacity: 85%;
+    width: 15rem;
+    height: auto;
+    border-radius: .25rem;
 }

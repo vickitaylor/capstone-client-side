@@ -9,7 +9,7 @@ export const AddSiteForm = () => {
         name: "",
         price: "",
         depth: "",
-        description: "", 
+        description: "",
         url: ""
     })
 
@@ -25,114 +25,120 @@ export const AddSiteForm = () => {
     }
 
     return (
-        <form className="siteForm">
-            <h2 className="siteForm__title">🦈 Woohoo!! Found A New Dive Site.  Let's add it to the List!🦈</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Site Name:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Add Site Name"
-                        value={site.name}
-                        onChange={
-                            (event) => {
-                                const copy = { ...site }
-                                copy.name = event.target.value
-                                addSite(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
+        <section>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="price">Price:</label>
-                    <input type="number"
-                        required autoFocus
-                        min="45.00" step="0.01"
-                        className="form-control"
-                        placeholder="Add Trip Price"
-                        value={site.price}
-                        onChange={
-                            (event) => {
-                                const copy = { ...site }
-                                copy.price = parseFloat(event.target.value)
-                                addSite(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
+            <h2 className="siteForm__title">🦈 Woohoo!! Found A New Dive Site! Let's add it to the List!🦈</h2>
+            <form className="siteForm">
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="name">Site Name:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control-site"
+                            placeholder="Add Site Name"
+                            value={site.name}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.name = event.target.value
+                                    addSite(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="depth">Depth:</label>
-                    <input type="number"
-                        required autoFocus
-                        min="0.00" step="1" max="130"
-                        className="form-control"
-                        placeholder="Add Max Depth"
-                        value={site.depth}
-                        onChange={
-                            (event) => {
-                                const copy = { ...site }
-                                copy.depth = parseInt(event.target.value)
-                                addSite(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="price">Price:</label>
+                        <input type="number"
+                            required autoFocus
+                            min="45.00" step="0.01"
+                            className="form-control-site"
+                            placeholder="Add Trip Price"
+                            value={site.price}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.price = parseFloat(event.target.value)
+                                    addSite(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="description">Description:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Add Site Description"
-                        value={site.description}
-                        onChange={
-                            (event) => {
-                                const copy = { ...site }
-                                copy.description = event.target.value
-                                addSite(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="description">Photo URL:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Add URL for photo"
-                        value={site.url}
-                        onChange={
-                            (event) => {
-                                const copy = { ...site }
-                                copy.url = event.target.value
-                                addSite(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="depth">Depth:</label>
+                        <input type="number"
+                            required autoFocus
+                            min="0.00" step="1" max="130"
+                            className="form-control-site"
+                            placeholder="Add Max Depth"
+                            value={site.depth}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.depth = parseInt(event.target.value)
+                                    addSite(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
 
-            <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
-                className="btn btn-primary">
-                Add New Site!!
-            </button>
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="description">Description:</label>
+                        <textarea
+                            required autoFocus
+                            type="text"
+                            style={{
+                                height: "10rem"
+                            }}
+                            className="form-control-site"
+                            placeholder="Add Site Description"
+                            value={site.description}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.description = event.target.value
+                                    addSite(copy)
+                                }
+                            }> </textarea>
+                    </div>
+                </fieldset>
 
-            <button onClick={() => navigate("/sites")}
-                className="btn btn-primary">
-                Cancel
-            </button>
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="description">Photo URL:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control-site"
+                            placeholder="Add URL for photo"
+                            value={site.url}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.url = event.target.value
+                                    addSite(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
 
-        </form>
+                <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
+                    className="btn-ds">
+                    Add New Site
+                </button>
+
+                <button onClick={() => navigate("/sites")}
+                    className="btn-ds">
+                    Cancel
+                </button>
+
+            </form>
+        </section>
     )
 
 }

@@ -1,17 +1,19 @@
-.dive__requests {
+.requests {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-
-.request {
-    /* border: 1px solid aqua; */
+.request,
+.assign {
     margin: 1rem;
     padding: 1rem;
     background-color: #c2e3e7;
     opacity: 85%;
+    width: 25rem;
+    height: auto;
+    border-radius: .25rem;
 }
 
 .request__header {
@@ -19,22 +21,100 @@
     font-weight: bold;
 }
 
-.btn {
-    margin: 0.5rem 0 0 0;
-    padding: 0.25rem;
-} 
-
-.btn-client {
-    margin: 0.5rem 1rem 0 0 ;
-    padding: 0.25rem;
+/* request form  */
+.label-req {
+    font-size: large;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
-.btn-complete {
-    margin: 0.5rem 0 0 1rem ;
+.requestForm {
+    padding: 0.5rem;
+    background-color: #c2e3e7;
+    opacity: 85%;
+    width: 25rem;
+    height: auto;
+    border-radius: .5rem;
+}
+
+.requestForm__assign {
+    background-color: #c2e3e7;
+    opacity: 85%;
+    width: 25rem;
+    height: auto;
+    border-radius: .5rem;
+}
+
+.form-control-req {
+    display: block;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.fieldset-req {
+    min-width: 0;
+    padding: 0.5rem 0;
+    margin: 0;
+    border: 0;
+}
+
+.select {
+    appearance: none;
+    background-color: transparent;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 0.5em 0.5em;
+    cursor: pointer;
+    line-height: 1;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.select__assign {
+    position: relative;
+    display: block;
+    z-index: 10;
+    appearance: none;
+    background-color: transparent;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 25rem;
+    font-family: inherit;
+    cursor: inherit;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 0.5em 0.5em;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: 1;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+/* buttons */
+.btn-rf {
+    padding: 0.25rem;
+    margin: 0 1rem 0 0.5rem;
+}
+
+.btn {
+    margin: 0.25rem;
     padding: 0.25rem;
 }
 
 .btn__requests {
-    margin: 0 0.5rem 0 1rem ;
+    margin: 0.5rem;
     padding: 0.25rem;
 }

@@ -1,0 +1,12 @@
+.home__page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.logo {
+    width: 25rem;
+    height: 25rem;
+}

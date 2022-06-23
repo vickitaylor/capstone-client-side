@@ -102,7 +102,7 @@ export const RequestEdit = () => {
             </fieldset>
 
             <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="btn">
                 Make Changes
             </button>
 
