@@ -6,6 +6,8 @@ export const GuideNav = () => {
 
     return (
         <ul className="navbar">
+            <img className="navbar__logo" src="images/piclogo.png" alt="logo"/>
+            
             <li className="navbar__item">
                 <Link className="navbar__link" to="/sites">Dive Site Locations</Link>
             </li>

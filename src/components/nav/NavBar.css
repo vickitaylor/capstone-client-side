@@ -13,3 +13,8 @@
     margin-left: auto;
 }
 
+.navbar__logo {
+    width: 3rem;
+    height: 3rem;
+    padding: 0 3rem 0 0;
+}

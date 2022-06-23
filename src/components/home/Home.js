@@ -1,4 +1,5 @@
-import { logDOM } from "@testing-library/react"
+import React, { Component } from "react"
+import ImageFadeIn from "react-image-fade-in";
 import "./home.css"
 
 export const Home = () => {
@@ -6,7 +7,8 @@ export const Home = () => {
 
     return (
         <article className="home__page" >
-            <img className="logo" src="images/logo.png" alt="logo" />
+            <ImageFadeIn src="images/logo.png"  alt="logo" className="logo" opacityTransition={4}/>
+            
         </article>
 
     )
