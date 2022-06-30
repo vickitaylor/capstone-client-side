@@ -19,7 +19,7 @@ export const RequestAssign = () => {
 
     useEffect(() => {
         getAssigns(assignId)
-            .then(setRequest)
+            .then(setRequest) 
     },
         [assignId]
     )
@@ -41,10 +41,10 @@ export const RequestAssign = () => {
 
     return (
         <>
-            <h2>Assign a Guide</h2>
 
             <section className="assign">
-                <header>{request?.user?.name}</header>
+            <h2>Assign a Guide</h2>
+                <header>Client Name: {request?.user?.name}</header>
                 <div>Location: {request?.diveSite?.name}</div>
                 <div>Date: {new Date(request.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
                 <div>Certification up to {request.certification} feet.</div>

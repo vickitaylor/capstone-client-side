@@ -6,7 +6,8 @@ export const Register = (props) => {
     const [customer, setCustomer] = useState({
         email: "",
         name: "",
-        isStaff: false
+        isStaff: false, 
+        skillLevelId: 1
     })
     let navigate = useNavigate()
 
@@ -56,15 +57,15 @@ export const Register = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Shark Bait Charters</h1>
+                <h1 className="h3 mb-3 font-weight-normal needspace">Register for Shark Bait Charters</h1>
                 <fieldset>
-                    <label htmlFor="name"> Full Name </label>
+                    <label className="label--login" htmlFor="name"> Full Name </label>
                     <input onChange={updateCustomer}
                            type="text" id="name" className="form-control logon"
                            placeholder="Enter your first and last name" required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="email"> Email address </label>
+                    <label className="label--login" htmlFor="email"> Email address </label>
                     <input onChange={updateCustomer}
                         type="email" id="email" className="form-control logon"
                         placeholder="Email address" required />

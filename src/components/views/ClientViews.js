@@ -1,6 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { CompletedDives } from "../completedDives/CompletedDives"
-import { DiveSiteList } from "../diveSites/DiveSiteList"
+import { SiteContainer } from "../diveSites/SiteContainer"
 import { Home } from "../home/Home"
 import { DiveRequestForm } from "../requests/DiveRequestForm"
 import { RequestEdit } from "../requests/RequestEdit"
@@ -20,13 +20,13 @@ export const ClientViews = () => {
 				</>
 			}>
 
-				<Route path="sites" element={ <DiveSiteList /> } />
-				<Route path="requests/create" element={ <DiveRequestForm /> } />
-				<Route path="requests" element={ <RequestList /> } />
-				<Route path="requests/:requestId/edit" element={ <RequestEdit /> } />
-				<Route path="completed" element={ <CompletedDives />} />
-				<Route path="home" element={ <Home />} />
-				
+				<Route path="sites" element={<SiteContainer />} />
+				<Route path="requests/create" element={<DiveRequestForm />} />
+				<Route path="requests" element={<RequestList />} />
+				<Route path="requests/:requestId/edit" element={<RequestEdit />} />
+				<Route path="completed" element={<CompletedDives />} />
+				<Route path="home" element={<Home />} />
+
 			</Route>
 		</Routes>
 	)

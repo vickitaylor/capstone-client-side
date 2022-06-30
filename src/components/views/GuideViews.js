@@ -3,9 +3,9 @@ import { AssignedToMe } from "../assigned/AssignedToMe"
 import { AddSiteForm } from "../diveSites/AddSiteForm"
 import { DiveSiteList } from "../diveSites/DiveSiteList"
 import { RequestAssign } from "../requests/RequestAssign"
-import { RequestList } from "../requests/RequestList"
 import { EditSiteList } from "../diveSites/EditSiteList"
-import { Home } from "../home/Home"
+import { RequestContainer } from "../requests/RequestContainer"
+import { ClientDetails } from "../assigned/ClientDetails"
 
 
 // component for what will display for guides.
@@ -24,12 +24,11 @@ export const GuideViews = () => {
 
 				<Route path="sites" element={< DiveSiteList />} />
 				<Route path="sites/create" element={< AddSiteForm />} />
-				<Route path="requests" element={<RequestList />} />
+				<Route path="requests" element={<RequestContainer />} />
 				<Route path="requests/:assignId/assign" element={<RequestAssign />} />
 				<Route path="mine" element={<AssignedToMe />} />
 				<Route path="sites/:siteId/edit" element={<EditSiteList />} />
-				<Route path="home" element={ <Home />} />
-
+				<Route path="/clients/:clientId" element={<ClientDetails />} />
 			</Route>
 		</Routes>
 	)

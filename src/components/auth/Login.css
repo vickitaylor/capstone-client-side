@@ -9,6 +9,10 @@ fieldset {
     border: 0;
 }
 
+.needspace {
+    padding: 9rem 0 0 0;
+}
+
 .form--login {
     display: inline-block;
     margin: 0 auto;
@@ -22,6 +26,14 @@ fieldset {
 .label--login {
     width: 8rem;
     display: inline-block;
+    font-size: large;
+    font-weight: 600;
+}
+
+.label-login {
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .form-control {
@@ -48,12 +60,13 @@ fieldset {
 .form--login {
     background-position-x: right;
     z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
+    min-height: 40rem;
+    min-width: 40rem;
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     text-align: center; 
+    border-radius: 180rem;
 }
 
 .button--close {

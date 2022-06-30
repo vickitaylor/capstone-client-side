@@ -7,6 +7,14 @@
 
 
 .logo {
+    padding-top: 2rem;
     width: 25rem;
     height: 25rem;
+}
+
+.welcome {
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    color: #5151bf;
 }

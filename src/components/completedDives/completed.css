@@ -13,5 +13,10 @@
     opacity: 85%;
     width: 15rem;
     height: auto;
-    border-radius: .25rem;
+    border-radius: 0.5rem;
+}
+
+.complete__header { 
+    font-size: large;
+    font-weight: bold;
 }

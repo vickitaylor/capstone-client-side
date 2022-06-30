@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: left 
 }
 
 .navbar__item {
@@ -14,7 +14,12 @@
 }
 
 .navbar__logo {
-    width: 3rem;
-    height: 3rem;
-    padding: 0 3rem 0 0;
+    width: 5rem;
+    height: 5rem;
+    padding: 0 2em 0 0;
+    margin-left: -2rem;
+}
+
+.navbar__link {
+    text-decoration: none;
 }

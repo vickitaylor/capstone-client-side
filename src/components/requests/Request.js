@@ -92,7 +92,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                             {
                                 requestObj.completed !== true
                                     ? deleteButton()
-                                    : `Dive Completed`
+                                    : `🦈Dive Completed`
                             }
                             {
                                 completeRequest()
@@ -102,8 +102,8 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                     </section>
 
                     :
-                    <section className="request" key={`request--${requestObj.id}`}>
-                        <header className="request__header">Location: {requestObj?.diveSite?.name}</header>
+                    <section className="request client" key={`request--${requestObj.id}`}>
+                        <header className="request__header">{requestObj?.diveSite?.name}</header>
                         <div>Date: {new Date(requestObj.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
                         <div>Price: {requestObj?.diveSite?.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
                         <div className="request__guide">
@@ -117,7 +117,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                         <div className="request__completed">
                             {
                                 requestObj.completed
-                                    ? `Dive Completed`
+                                    ? `🤿Dive Completed`
                                     : <>
                                         <button className="btn__requests" onClick={() => navigate(`/requests/${requestObj.id}/edit`)}>Edit</button>
                                         {

@@ -4,9 +4,11 @@ import { getSites } from "../ApiManager"
 import "./DiveSites.css"
 
 
-export const DiveSiteList = () => {
+export const DiveSiteList = ({ siteSearchState}) => {
 
     const [sites, setSites] = useState([])
+    const [filteredSites, setFiltered] = useState([])
+
     const navigate = useNavigate()
 
     const localCharterUser = localStorage.getItem("charter_user")
@@ -17,6 +19,26 @@ export const DiveSiteList = () => {
             .then(setSites)
     },
         []
+    )
+
+    useEffect(() => {
+        setFiltered(sites)
+    },
+        [sites]
+    )
+
+    useEffect(() => {
+        const searchedSites = sites.filter(site => {
+            return (
+                site.name.toLowerCase().includes(siteSearchState) ||
+                site.funFacts.toLowerCase().includes(siteSearchState.toLowerCase()) ||
+                site.willSee.toLowerCase().includes(siteSearchState.toLowerCase()) ||
+                site.description.toLowerCase().includes(siteSearchState)
+            )
+        })
+        setFiltered(searchedSites)
+    },
+        [siteSearchState]
     )
 
     return (
@@ -33,7 +55,7 @@ export const DiveSiteList = () => {
 
             <article className="divesites">
                 {
-                    sites.map(site => {
+                    filteredSites.map(site => {
                         return <section className="site" key={`site--${site.id}`}>
                             {
                                 charterUserObject.staff
@@ -53,8 +75,8 @@ export const DiveSiteList = () => {
                                         <div>Depth: {site.depth} feet</div><br />
                                         <div>Price for 2 Dives on Site: {site.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div><br />
                                         <div>{site.description}</div><br />
-                                        <div>Fun Facts: </div><br />
-                                        <div>Typically Can See: </div>
+                                        <div>Fun Facts: {site.funFacts}</div><br />
+                                        <div>Typically Can See: {site.willSee}</div>
                                     </div>
                                 </div>
                             </div>

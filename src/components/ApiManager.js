@@ -26,22 +26,37 @@ export const getAssigns = (assignId) => {
 
 export const getAssignedDives = () => {
     return fetch(`http://localhost:8088/assignedDives?_expand=guide`)
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 export const getUsers = () => {
     return fetch(`http://localhost:8088/users`)
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 export const getCompletedDives = () => {
     return fetch(`http://localhost:8088/diveRequests?_expand=diveSite&&_expand=user&completed=true`)
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 export const getEditSites = (siteId) => {
     return fetch(`http://localhost:8088/diveSites/${siteId}`)
         .then(res => res.json())
+}
+
+export const getClients = () => {
+    return fetch(`http://localhost:8088/users?isStaff=false`)
+        .then(res => res.json())
+}
+
+export const getClient = (clientId) => {
+    return fetch(`http://localhost:8088/users/${clientId}?_embed=diveRequests`)
+        .then(res => res.json())
+}
+
+export const getLevels = () => {
+    return fetch(`http://localhost:8088/skillLevel`)
+    .then(res => res.json())
 }
 
 // POST requests 
@@ -91,15 +106,15 @@ export const saveRequestEdit = (requestId, request) => {
 }
 
 export const saveCompletedRequest = (requestObj, reqComplete) => {
-    return fetch(`http://localhost:8088/diveRequests/${requestObj.id}`, 
-    {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(reqComplete)
-    })
-    .then(res => res.json())
+    return fetch(`http://localhost:8088/diveRequests/${requestObj.id}`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(reqComplete)
+        })
+        .then(res => res.json())
 }
 
 export const saveSiteEdit = (siteId, site) => {
@@ -112,6 +127,18 @@ export const saveSiteEdit = (siteId, site) => {
     })
         .then(res => res.json())
 }
+
+export const saveUserEdit = (clientId, user) => {
+    return fetch(`http://localhost:8088/users/${clientId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => res.json())
+}
+
 
 // DELETE requests 
 export const deleteRequest = (requestObj) => {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { getRequests, getGuides } from "../ApiManager"
-import { useNavigate } from "react-router-dom"
+import { getRequests, getGuides, getClients } from "../ApiManager"
+import { Link, useNavigate } from "react-router-dom"
 import { Assigned } from "./Assigned"
 import "./Assigned.css"
 
@@ -8,6 +8,7 @@ export const AssignedToMe = () => {
 
     const [requests, setRequests] = useState([])
     const [guides, setGuides] = useState([])
+    const [clients, setClients] = useState([])
 
     const navigate = useNavigate()
 
@@ -25,6 +26,15 @@ export const AssignedToMe = () => {
         []
     )
 
+    useEffect(() => {
+        getClients()
+            .then(setClients)
+    },
+        []
+    )
+
+
+
     return (
         <>
 
@@ -32,6 +42,19 @@ export const AssignedToMe = () => {
             <button onClick={() => navigate("/requests")}>Show All</button>
 
             <article className="all-assigned">
+                <aside className="clientList">
+                    <header className="assigned__header">Client List</header>
+                    {
+                        clients.map((client) => {
+                            return <ul className="client_list" key={`client--${client.id}`}>
+                                <Link className="client_list_name" to={`/clients/${client.id}`}>
+                                    <li className="client_names">{client.name}</li>
+                                </Link>
+                            </ul>
+                        })
+                    }
+                </aside>
+               <section className="assigned_list">
                 {
                     requests.map((request) => <Assigned key={`request--${request.id}`}
                         requestObj={request}
@@ -40,11 +63,11 @@ export const AssignedToMe = () => {
                     />
                     )
                 }
+                </section>
+
             </article>
         </>
-
     )
-
 }
 
 

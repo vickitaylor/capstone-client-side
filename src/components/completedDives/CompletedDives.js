@@ -38,19 +38,22 @@ export const CompletedDives = () => {
     return (
 
         <>
+            <h2>Completed Dives</h2>
             <button className="btn" onClick={() => setMine(true)}>Show Mine</button>
             <button className="btn" onClick={() => setMine(false)}>Show All</button>
 
-            <h2>Completed Dives</h2>
 
             <article className="completed">
                 {
                     filteredDives.map(dive => {
                         return <section className="complete" key={`complete--${dive.id}`}>
-                            <header>{dive.diveSite.name}</header>
+
+                            <header className="complete__header">{dive.diveSite.name}</header>
                             <div>{dive.user.name}</div>
-                            <div>Date: {new Date(dive.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
+                            <div>Dive Date: {new Date(dive.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
                             <div>{dive.completedComments}</div>
+
+
                             <button className="btn">Edit</button>
                         </section>
                     })

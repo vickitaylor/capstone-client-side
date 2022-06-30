@@ -4,6 +4,7 @@ import "./NavBar.css"
 export const ClientNav = () => {
     const navigate = useNavigate()
 
+
     return (
         <ul className="navbar">
             <Link className="navbar__link" to="/home">
@@ -25,7 +26,7 @@ export const ClientNav = () => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/completed">Completed Dives</Link>
             </li>
-
+            
             {
                 localStorage.getItem("charter_user")
                     ? <li className="navbar__item navbar__logout">

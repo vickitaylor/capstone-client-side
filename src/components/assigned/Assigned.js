@@ -5,6 +5,7 @@ export const Assigned = ({ requestObj, currentUser, guides }) => {
     const [userGuide, setUserGuide] = useState({})
     const [assignedGuide, setAssignedGuide] = useState({})
 
+
     useEffect(
         () => {
 
@@ -21,7 +22,9 @@ export const Assigned = ({ requestObj, currentUser, guides }) => {
         [guides, currentUser, requestObj]
     )
 
-     const showStuff = () => {
+
+
+    const showStuff = () => {
         if (userGuide.id === assignedGuide.id) {
             return <section className="assigned" key={`request--${requestObj.id}`}>
                 <header className="assigned__header">{requestObj?.user?.name}</header>
@@ -30,26 +33,26 @@ export const Assigned = ({ requestObj, currentUser, guides }) => {
                 <div>
                     {
                         requestObj.completed
-                        ? 
-                        <>
-                        <div>Dive Completed</div>
-                        <div>Guide Compensation: {((requestObj?.diveSite?.price)/2).toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
-                        </>
+                            ?
+                            <>
+                                <div>Dive Completed</div>
+                                <div>Guide Compensation: {((requestObj?.diveSite?.price) / 2).toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
+                            </>
                             : ""
                     }
                 </div>
             </section>
-        } else {
-            return ""
         }
     }
 
     return (
         <>
-            {
-                showStuff()
-            }
+            <article>
+                {
+                    showStuff()
+                }
 
+            </article>
         </>
     )
 }    

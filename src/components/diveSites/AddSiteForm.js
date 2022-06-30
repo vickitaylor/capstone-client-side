@@ -10,7 +10,9 @@ export const AddSiteForm = () => {
         price: "",
         depth: "",
         description: "",
-        url: ""
+        url: "",
+        funFacts: "",
+        willSee: ""
     })
 
     const navigate = useNavigate()
@@ -25,10 +27,10 @@ export const AddSiteForm = () => {
     }
 
     return (
-        <section>
+        <section className="requestForm-all">
 
-            <h2 className="siteForm__title">🦈 Woohoo!! Found A New Dive Site! Let's add it to the List!🦈</h2>
             <form className="siteForm">
+                <h2 className="siteForm__title">🦈 Woohoo!! Found A New Dive Site! Let's add it to the List!🦈</h2>
                 <fieldset>
                     <div className="form-group">
                         <label className="label" htmlFor="name">Site Name:</label>
@@ -53,14 +55,14 @@ export const AddSiteForm = () => {
                         <label className="label" htmlFor="price">Price:</label>
                         <input type="number"
                             required autoFocus
-                            min="45.00" step="0.01"
+                            min="100.00" step="1.00"
                             className="form-control-site"
                             placeholder="Add Trip Price"
                             value={site.price}
                             onChange={
                                 (event) => {
                                     const copy = { ...site }
-                                    copy.price = parseFloat(event.target.value)
+                                    copy.price = parseFloat(event.target.value, 2)
                                     addSite(copy)
                                 }
                             } />
@@ -93,7 +95,7 @@ export const AddSiteForm = () => {
                             required autoFocus
                             type="text"
                             style={{
-                                height: "10rem"
+                                height: "5rem"
                             }}
                             className="form-control-site"
                             placeholder="Add Site Description"
@@ -110,7 +112,51 @@ export const AddSiteForm = () => {
 
                 <fieldset>
                     <div className="form-group">
-                        <label className="label" htmlFor="description">Photo URL:</label>
+                        <label className="label" htmlFor="funFacts">Fun Facts:</label>
+                        <textarea
+                            required autoFocus
+                            type="text"
+                            style={{
+                                height: "5rem"
+                            }}
+                            className="form-control-site"
+                            placeholder="Add some fun facts about site"
+                            value={site.funFacts}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.funFacts = event.target.value
+                                    addSite(copy)
+                                }
+                            }> </textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="willSee">Typically Will See:</label>
+                        <textarea
+                            required autoFocus
+                            type="text"
+                            style={{
+                                height: "5rem"
+                            }}
+                            className="form-control-site"
+                            placeholder="Add common fish and coral for the site"
+                            value={site.willSee}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...site }
+                                    copy.willSee = event.target.value
+                                    addSite(copy)
+                                }
+                            }> </textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label className="label" htmlFor="photo">Photo URL:</label>
                         <input
                             required autoFocus
                             type="text"
@@ -126,6 +172,8 @@ export const AddSiteForm = () => {
                             } />
                     </div>
                 </fieldset>
+
+
 
                 <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
                     className="btn-ds">
