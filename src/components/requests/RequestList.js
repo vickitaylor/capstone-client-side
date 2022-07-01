@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { getRequests, getGuides } from "../ApiManager"
+import { getRequests, getGuides, getLevels, saveAssigned } from "../ApiManager"
 import { Request } from "./Request"
 import "./Request.css"
 
@@ -10,7 +10,8 @@ export const RequestList = ({ searchTermsState }) => {
     const [filteredRequests, setFiltered] = useState([])
     const [guides, setGuides] = useState([])
     const [completed, setNotComplete] = useState(true)
-    const navigate= useNavigate()
+    const [levels, setLevels] = useState([])
+    const navigate = useNavigate()
 
     const localCharterUser = localStorage.getItem("charter_user")
     const charterUserObject = JSON.parse(localCharterUser)
@@ -24,6 +25,8 @@ export const RequestList = ({ searchTermsState }) => {
                 setGuides(guides)
                 getRequests()
                     .then(setRequests)
+                getLevels()
+                    .then(setLevels)
             })
     },
         []
@@ -44,7 +47,7 @@ export const RequestList = ({ searchTermsState }) => {
             setFiltered(myRequests)
         }
     },
-        [requests]
+        [requests, charterUserObject]
     )
 
     useEffect(() => {
@@ -55,7 +58,7 @@ export const RequestList = ({ searchTermsState }) => {
             setFiltered(requests)
         }
     },
-        [completed]
+        [completed, requests]
     )
 
     useEffect(() => {
@@ -68,8 +71,9 @@ export const RequestList = ({ searchTermsState }) => {
         })
         setFiltered(searchedRequests)
     },
-        [searchTermsState]
+        [searchTermsState, requests]
     )
+
 
 
     return (
@@ -88,10 +92,12 @@ export const RequestList = ({ searchTermsState }) => {
             <article className="requests">
                 {
                     filteredRequests.map((request) => <Request key={`request--${request.id}`}
-                        getAllRequests={getAllRequests}
                         requestObj={request}
+                        getAllRequests={getAllRequests}
                         currentUser={charterUserObject}
                         guides={guides}
+                        levels={levels}
+                        saveAssigned={saveAssigned}
                     />
                     )
                 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getRequests, getGuides, getClients } from "../ApiManager"
+import { getRequests, getGuides, getClients, getLevels } from "../ApiManager"
 import { Link, useNavigate } from "react-router-dom"
 import { Assigned } from "./Assigned"
 import "./Assigned.css"
@@ -9,6 +9,7 @@ export const AssignedToMe = () => {
     const [requests, setRequests] = useState([])
     const [guides, setGuides] = useState([])
     const [clients, setClients] = useState([])
+    const [levels, setLevels] = useState([])
 
     const navigate = useNavigate()
 
@@ -29,6 +30,8 @@ export const AssignedToMe = () => {
     useEffect(() => {
         getClients()
             .then(setClients)
+        getLevels()
+            .then(setLevels)
     },
         []
     )
@@ -54,15 +57,16 @@ export const AssignedToMe = () => {
                         })
                     }
                 </aside>
-               <section className="assigned_list">
-                {
-                    requests.map((request) => <Assigned key={`request--${request.id}`}
-                        requestObj={request}
-                        currentUser={charterUserObject}
-                        guides={guides}
-                    />
-                    )
-                }
+                <section className="assigned_list">
+                    {
+                        requests.map((request) => <Assigned key={`request--${request.id}`}
+                            requestObj={request}
+                            currentUser={charterUserObject}
+                            guides={guides}
+                            levels={levels}
+                        />
+                        )
+                    }
                 </section>
 
             </article>

@@ -50,3 +50,26 @@
     padding: 1rem;
     margin: 1rem;
 }
+
+.client_detail {
+    display: block;
+    text-align: center;
+    width: auto;
+    margin-top: 1rem;
+}
+
+.detail_inner {
+    display: inline-block;
+    text-align: center;
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+    background-color: #c2e3e7;
+    border: 1px #0da5b6 solid;
+    border-radius: 0.5rem;
+    opacity: 85%;
+    width: 23rem;
+}
+
+.client_detail_form {
+    text-align: left;
+}

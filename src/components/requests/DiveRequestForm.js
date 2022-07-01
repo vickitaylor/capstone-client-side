@@ -46,7 +46,7 @@ export const DiveRequestForm = () => {
 
             <section className="requestForm-all">
                 <form className="requestForm">
-                    <h2 className="requestForm__title">🤿🐙🦑🦈Let's Go Diving! 🦈🐡🐠🐟</h2>
+                    <h2 className="requestForm__title">🤿🐙🦑🦈 Let's Go Diving! 🦈🐡🐠🐟</h2>
                     <fieldset>
                         <div className="form-group">
                             <label className="label-req" htmlFor="site">Site Name:</label>

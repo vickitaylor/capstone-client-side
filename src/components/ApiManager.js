@@ -50,14 +50,20 @@ export const getClients = () => {
 }
 
 export const getClient = (clientId) => {
-    return fetch(`http://localhost:8088/users/${clientId}?_embed=diveRequests`)
+    return fetch(`http://localhost:8088/users/${clientId}`)
         .then(res => res.json())
 }
 
 export const getLevels = () => {
-    return fetch(`http://localhost:8088/skillLevel`)
+    return fetch(`http://localhost:8088/skillLevels`)
     .then(res => res.json())
 }
+
+export const getClientDetails = (clientId) => {
+    return fetch(`http://localhost:8088/users/${clientId}?_embed=diveRequests`)
+    .then(res => res.json())
+}
+
 
 // POST requests 
 export const saveSites = (sites) => {

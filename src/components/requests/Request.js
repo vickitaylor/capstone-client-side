@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom"
 import { deleteRequest, saveCompletedRequest } from "../ApiManager"
 
 
-export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => {
+export const Request = ({ requestObj, getAllRequests, currentUser, guides, levels, saveAssigned }) => {
 
     const navigate = useNavigate()
     const [assignedGuide, setAssignedGuide] = useState({})
     const [userGuide, setUserGuide] = useState({})
+    const [clientLevel, setClientLevel] = useState([])
 
     useEffect(
         () => {
@@ -24,6 +25,16 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
 
         },
         [guides, currentUser, requestObj]
+    )
+
+
+    useEffect(() => {
+        if (requestObj.id !== "" && levels.length) {
+            const skillType = levels.find(level => level.id === requestObj?.user?.skillLevelId)
+            setClientLevel(skillType)
+        }
+    },
+        [requestObj, levels]
     )
 
 
@@ -62,6 +73,21 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
             .then(getAllRequests)
     }
 
+    const saveButtonClick = (event) => {
+        event.preventDefault()
+
+        const assignedToApi = {
+            guideId: request.guideId,
+            diveRequestId: requestObj.id,
+        }
+
+        saveAssigned(assignedToApi)
+            .then(getAllRequests)
+    }
+
+
+    const [request, setRequest] = useState({})
+
     return (
         <>
             {
@@ -72,6 +98,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                         <header className="request__header">{requestObj?.user?.name}</header>
                         <div>Location: {requestObj?.diveSite?.name}</div>
                         <div>Date: {new Date(requestObj.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
+                        <div>Level: {clientLevel.skill}</div>
                         <div>Price: {requestObj?.diveSite?.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
                         <div>
                             {
@@ -85,7 +112,23 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides }) => 
                             {
                                 requestObj.assignedDives.length
                                     ? `Assigned To: ${assignedGuide !== null ? assignedGuide?.user?.name : ""}`
-                                    : <button className="btn__requests" onClick={() => navigate(`/requests/${requestObj.id}/assign`)}>Assign Request</button>
+                                    : <>
+                                        <select className="select_list" id="site" required autoFocus
+                                            onChange={(event) => {
+                                                const copy = { ...request }
+                                                copy.guideId = parseInt(event.target.value)
+                                                setRequest(copy)
+                                            }}>
+                                            <option value="0">Choose Guide:</option>
+                                            {guides.map(guide => {
+                                                return <option value={guide.id} key={`guide--${guide.id}`}>{guide?.user?.name}</option>
+                                            })}
+                                        </select>
+                                        <button onClick={(event) => saveButtonClick(event)}
+                                            className="btn__requests">
+                                            Assign Dive
+                                        </button>
+                                    </>
                             }
                         </div>
                         <div>

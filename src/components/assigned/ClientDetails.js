@@ -1,36 +1,29 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { getClient, saveUserEdit, getLevels } from "../ApiManager"
+import { getClient, saveUserEdit, getLevels, getClientDetails } from "../ApiManager"
 
 export const ClientDetails = () => {
     const { clientId } = useParams()
-    const navigate = useNavigate()
-    const [levels, setLevel] = useState([])
-    // const [client, setClient] = useState({})
 
-    const [user, updateUser] = useState({
+    const [client, updateClient] = useState({
         name: "",
         email: "",
         isStaff: false,
         skillLevelId: 0
     })
 
+    const navigate = useNavigate()
+    const [levels, setLevel] = useState([])
+    const [clientDetail, setClientDetail] = useState({})
+    const [clientLevel, setClientLevel] = useState([])
+
 
     useEffect(() => {
         getClient(clientId)
-            .then(updateUser)
+            .then(updateClient)
     },
         [clientId]
     )
-
-    // useEffect(() => {
-    //     if (user.name !== "") {
-    //         setClient(user)
-    //     }
-    //     console.log(client.skillLevelId)
-    // },
-    //     [user]
-    // )
 
 
     useEffect(() => {
@@ -40,65 +33,84 @@ export const ClientDetails = () => {
         []
     )
 
+
+    useEffect(() => {
+        getClientDetails(clientId)
+            .then(setClientDetail)
+    },
+        [clientId]
+    )
+
+    useEffect(() => {
+        if (client.name !== "" && levels.length) {
+            const skillType = levels.find(level => level.id === client.skillLevelId)
+            setClientLevel(skillType)
+        }
+    },
+        [client, levels]
+    )
+
     const saveButtonClick = (event) => {
         event.preventDefault()
 
-        saveUserEdit(clientId, user)
+        saveUserEdit(clientId, client)
             .then(() => {
                 navigate("/mine")
             })
     }
 
-    // const levelName = levels.find(level => level.id === user.skillLevelId)
 
     return (
         <>
             <section className="client_detail">
+                <div className="detail_inner">
+                    <header className="assigned__header">🤿 Update Client Skill Level 🤿</header>
+                    <br />
+                    <header className="assigned__header">{client.name}</header>
+                    <div>Current Skill Level: {clientLevel.skill}</div>
+                    {
+                        clientDetail.diveRequests
+                            ? `Trips With Us: ${clientDetail.diveRequests.length}`
+                            : ""
+                    }
+                    <br />
+                    <form className="client_detail_form">
+                        <fieldset className="fieldset-req">
+                            <label className="label" htmlFor="level">Change Level To:</label>
 
-                <h2>Client Details</h2>
+                            {levels.map(level => {
+                                return (
+                                    <div className="req-form-control" key={`level--${level.id}`}>
+                                        <input
+                                            required autoFocus
+                                            onChange={(event) => {
+                                                const copy = { ...client }
+                                                copy.skillLevelId = parseInt(event.target.value)
+                                                updateClient(copy)
+                                            }}
+                                            type="radio"
+                                            name="skillLevel"
+                                            value={level.id}
+                                        />
+                                        {level.skill}
+                                    </div>
+                                )
+                            })}
+                        </fieldset>
 
-                <header>{user.name}</header>
-                {/* <div>Current Skill Level: {user.skillLevelId}</div> */}
-                {/* <div>Trips With Us: {user?.diveRequests.length}</div> */}
+                        <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
+                            className="btn">
+                            Make Changes
+                        </button>
 
+                        <button onClick={() => navigate("/mine")}
+                            className="btn">
+                            Cancel
+                        </button>
 
-                <form className="client_detail_form">
-                    <fieldset className="fieldset-req">
-                        <label className="label" htmlFor="level">Change Level To:</label>
+                    </form>
 
-                        {levels.map(level => {
-                            return (
-                                <div className="req-form-control" key={`level--${level.id}`}>
-                                    <input
-                                        required autoFocus
-                                        onChange={(event) => {
-                                            const copy = { ...user }
-                                            copy.skillLevelId = parseInt(event.target.value)
-                                            updateUser(copy)
-                                        }}
-                                        type="radio"
-                                        name="skillLevel"
-                                        value={level.id}
-                                    />
-                                    {level.skill}
-                                </div>
-                            )
-                        })}
-                    </fieldset>
-
-                    <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
-                        className="btn">
-                        Make Changes
-                    </button>
-
-                    <button onClick={() => navigate("/mine")}
-                        className="btn">
-                        Cancel
-                    </button>
-
-                </form>
-
-
+                </div>
             </section>
         </>
     )
