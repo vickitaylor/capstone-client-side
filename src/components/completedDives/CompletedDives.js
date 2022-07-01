@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { getCompletedDives } from "../ApiManager"
 import "./completed.css"
 
@@ -7,6 +8,7 @@ export const CompletedDives = () => {
     const [dives, setDives] = useState([])
     const [filteredDives, setFiltered] = useState([])
     const [mine, setMine] = useState(false)
+    const navigate = useNavigate()
 
     const localCharterUser = localStorage.getItem("charter_user")
     const charterUserObject = JSON.parse(localCharterUser)
@@ -51,10 +53,14 @@ export const CompletedDives = () => {
                             <header className="complete__header">{dive.diveSite.name}</header>
                             <div>{dive.user.name}</div>
                             <div>Dive Date: {new Date(dive.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
+                            <div>Dive Rating: {dive.rating}</div>
                             <div>{dive.completedComments}</div>
 
-
-                            <button className="btn">Edit</button>
+                        {
+                           mine 
+                            ? <button className="btn"onClick={() => navigate(`/completed/${dive.id}`)}>Edit</button>
+                            : ""
+                        }
                         </section>
                     })
                 }

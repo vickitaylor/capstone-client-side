@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { getRequests, getGuides, getLevels, saveAssigned } from "../ApiManager"
+import { getRequests, getGuides, getLevels } from "../ApiManager"
 import { Request } from "./Request"
 import "./Request.css"
 
@@ -17,9 +17,8 @@ export const RequestList = ({ searchTermsState }) => {
     const charterUserObject = JSON.parse(localCharterUser)
 
 
+    // guides array is completely populated before the requests come back
     useEffect(() => {
-
-        // guides array is completely populated before the requests come back
         getGuides()
             .then((guides) => {
                 setGuides(guides)
@@ -47,7 +46,7 @@ export const RequestList = ({ searchTermsState }) => {
             setFiltered(myRequests)
         }
     },
-        [requests, charterUserObject]
+        [requests]
     )
 
     useEffect(() => {
@@ -58,7 +57,7 @@ export const RequestList = ({ searchTermsState }) => {
             setFiltered(requests)
         }
     },
-        [completed, requests]
+        [completed]
     )
 
     useEffect(() => {
@@ -71,7 +70,7 @@ export const RequestList = ({ searchTermsState }) => {
         })
         setFiltered(searchedRequests)
     },
-        [searchTermsState, requests]
+        [searchTermsState]
     )
 
 
@@ -97,7 +96,6 @@ export const RequestList = ({ searchTermsState }) => {
                         currentUser={charterUserObject}
                         guides={guides}
                         levels={levels}
-                        saveAssigned={saveAssigned}
                     />
                     )
                 }

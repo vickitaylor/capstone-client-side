@@ -106,7 +106,10 @@ export const RequestEdit = () => {
                         className="btn">
                         Make Changes
                     </button>
-
+                    <button onClick={() => navigate("/requests")}
+                        className="btn-rf">
+                        Cancel
+                    </button>
                 </form >
             </section>
         </>

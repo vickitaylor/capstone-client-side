@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { deleteRequest, saveCompletedRequest } from "../ApiManager"
+import { deleteRequest, saveCompletedRequest, saveAssigned } from "../ApiManager"
 
 
-export const Request = ({ requestObj, getAllRequests, currentUser, guides, levels, saveAssigned }) => {
+export const Request = ({ requestObj, getAllRequests, currentUser, guides, levels}) => {
 
-    const navigate = useNavigate()
     const [assignedGuide, setAssignedGuide] = useState({})
     const [userGuide, setUserGuide] = useState({})
     const [clientLevel, setClientLevel] = useState([])
+    const [request, setRequest] = useState({})
+    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -34,7 +35,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides, level
             setClientLevel(skillType)
         }
     },
-        [requestObj, levels]
+        [levels, requestObj]
     )
 
 
@@ -85,8 +86,6 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides, level
             .then(getAllRequests)
     }
 
-
-    const [request, setRequest] = useState({})
 
     return (
         <>

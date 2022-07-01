@@ -109,7 +109,7 @@ export const EditSiteList = () => {
                                     copy.description = event.target.value
                                     updateSite(copy)
                                 }
-                            }> </textarea>
+                            }></textarea>
                     </div>
                 </fieldset>
 
@@ -130,7 +130,7 @@ export const EditSiteList = () => {
                                     copy.funFacts = event.target.value
                                     updateSite(copy)
                                 }
-                            }> </textarea>
+                            }></textarea>
                     </div>
                 </fieldset>
 
@@ -152,7 +152,7 @@ export const EditSiteList = () => {
                                     copy.willSee = event.target.value
                                     updateSite(copy)
                                 }
-                            }> </textarea>
+                            }></textarea>
                     </div>
                 </fieldset>
 

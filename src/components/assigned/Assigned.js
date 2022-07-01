@@ -53,7 +53,7 @@ export const Assigned = ({ requestObj, currentUser, guides, levels }) => {
             </section>
         }
     }
-
+ 
     return (
         <>
             <article>
