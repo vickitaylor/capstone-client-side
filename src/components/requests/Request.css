@@ -28,6 +28,27 @@
     color: rgb(43, 43, 180);
 }
 
+.select_list {
+    position: relative;
+    display: wrap;
+    z-index: 10;
+    appearance: none;
+    background-color: transparent;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 10rem;
+    font-family: inherit;
+    cursor: inherit;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 0.5em 0.5em;
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
 /* search bars --all*/
 .search {
     border-radius: .25rem;
@@ -37,7 +58,6 @@
     background-color: #e6ffff;
     border: darkblue 1px solid;
 }
-
 
 /* request form  */
 
