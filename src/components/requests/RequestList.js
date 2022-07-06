@@ -4,6 +4,7 @@ import { getRequests, getGuides, getLevels } from "../ApiManager"
 import { Request } from "./Request"
 import "./Request.css"
 
+
 export const RequestList = ({ searchTermsState }) => {
 
     const [requests, setRequests] = useState([])
@@ -81,9 +82,9 @@ export const RequestList = ({ searchTermsState }) => {
                 charterUserObject.staff
                     ? <>
                         <h2>Dive Requests</h2>
-                        <button className="btn_test" onClick={() => navigate("/mine")}>Show Mine</button>
-                        <button className="btn_test" onClick={() => setNotComplete(true)}>Show All</button>
-                        <button className="btn_test" onClick={() => setNotComplete(false)}>Show Dives Not Completed</button>
+                        <button className="btn_test btn-bubble" onClick={() => navigate("/mine")}>Show Mine</button>
+                        <button className="btn_test btn-bubble" onClick={() => setNotComplete(true)}>Show All</button>
+                        <button className="btn_test btn-bubble" onClick={() => setNotComplete(false)}>Dives Not Completed</button>
                     </>
                     : <h2>My Dive Requests</h2>
             }

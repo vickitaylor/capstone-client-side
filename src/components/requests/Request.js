@@ -103,7 +103,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides, level
                             {
                                 requestObj.comments !== ""
                                     ? `Change Comments: ${requestObj.comments}`
-                                    : ""
+                                    : <br />
                             }
                         </div>
 
@@ -112,8 +112,9 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides, level
                                 requestObj.assignedDives.length
                                     ? `Assigned To: ${assignedGuide !== null ? assignedGuide?.user?.name : ""}`
                                     : <>
-                                        <select className="select_list" id="site" required autoFocus
+                                        <select className="select_list" id="site" required
                                             onChange={(event) => {
+                                                event.preventDefault()
                                                 const copy = { ...request }
                                                 copy.guideId = parseInt(event.target.value)
                                                 setRequest(copy)
@@ -134,7 +135,7 @@ export const Request = ({ requestObj, getAllRequests, currentUser, guides, level
                             {
                                 requestObj.completed !== true
                                     ? deleteButton()
-                                    : `🦈Dive Completed`
+                                    : `🐠Dive Completed`
                             }
                             {
                                 completeRequest()

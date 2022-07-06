@@ -37,12 +37,29 @@ export const CompletedDives = () => {
         [mine]
     )
 
+    const rating = (rating) => {
+        if (rating === 1) {
+            return (`🐟`)
+        } else if (rating === 2) {
+            return (`🐟🐟`)
+        } else if (rating === 3) {
+            return (`🐟🐟🐟`)
+        } else if (rating === 4) {
+            return (`🐟🐟🐟🐟`)
+        } else if (rating === 5) {
+            return (`🐟🐟🐟🐟🐟`)
+        } else {
+            return (``)
+        }
+    }
+
+
     return (
 
         <>
             <h2>Completed Dives</h2>
-            <button className="btn" onClick={() => setMine(true)}>Show Mine</button>
-            <button className="btn" onClick={() => setMine(false)}>Show All</button>
+            <button className="btn_test" onClick={() => setMine(true)}>Show Mine</button>
+            <button className="btn_test" onClick={() => setMine(false)}>Show All</button>
 
 
             <article className="completed">
@@ -53,14 +70,25 @@ export const CompletedDives = () => {
                             <header className="complete__header">{dive.diveSite.name}</header>
                             <div>{dive.user.name}</div>
                             <div>Dive Date: {new Date(dive.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</div>
-                            <div>Dive Rating: {dive.rating}</div>
-                            <div>{dive.completedComments}</div>
+                            {
+                                dive.rating > 0
+                                    ? <div>Dive Rating: {rating(dive.rating)}</div>
+                                    : <div>Dive not rated</div>
+                            }
+                            <br />
+                            <>
+                                {
+                                    dive.completedComments !== ""
+                                        ? <div>{dive.completedComments}</div>
+                                        : <br />
+                                }
+                            </>
 
-                        {
-                           mine 
-                            ? <button className="btn"onClick={() => navigate(`/completed/${dive.id}`)}>Edit</button>
-                            : ""
-                        }
+                            {
+                                mine
+                                    ? <button className="btn__requests" onClick={() => navigate(`/completed/${dive.id}`)}>Edit</button>
+                                    : ""
+                            }
                         </section>
                     })
                 }

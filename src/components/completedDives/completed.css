@@ -19,4 +19,9 @@
 .complete__header { 
     font-size: large;
     font-weight: bold;
+    color: rgb(43, 43, 180);
+} 
+
+.comments {
+    padding: 0
 }

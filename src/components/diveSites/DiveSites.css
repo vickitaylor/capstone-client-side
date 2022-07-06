@@ -1,3 +1,7 @@
+h2 {
+    color: darkblue;
+    size: 10rem;
+}
 .divesites {
     display: flex;
     flex-direction: row;
@@ -18,8 +22,7 @@
     font-size: large;
     font-weight: bold;
     text-align: center;
-    color: #07484e;
-    
+    color: darkblue;
 }
 
 .photos {
@@ -72,6 +75,10 @@
 .btn-ds {
     padding: 0.25rem;
     margin: 0.5rem 1rem 0 0;
+}
+
+.btn-ds:hover {
+    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
 }
 
 /* flipcards */

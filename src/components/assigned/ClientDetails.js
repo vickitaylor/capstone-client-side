@@ -82,7 +82,7 @@ export const ClientDetails = () => {
                                 return (
                                     <div className="req-form-control" key={`level--${level.id}`}>
                                         <input
-                                            required autoFocus
+                                            required
                                             onChange={(event) => {
                                                 const copy = { ...client }
                                                 copy.skillLevelId = parseInt(event.target.value)

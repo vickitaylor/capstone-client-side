@@ -54,7 +54,7 @@ export const AddSiteForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="price">Price:</label>
                         <input type="number"
-                            required autoFocus
+                            required 
                             min="100.00" step="1.00"
                             className="form-control-site"
                             placeholder="Add Trip Price"
@@ -73,7 +73,7 @@ export const AddSiteForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="depth">Depth:</label>
                         <input type="number"
-                            required autoFocus
+                            required 
                             min="0.00" step="1" max="130"
                             className="form-control-site"
                             placeholder="Add Max Depth"
@@ -92,7 +92,7 @@ export const AddSiteForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="description">Description:</label>
                         <textarea
-                            required autoFocus
+                            required 
                             type="text"
                             style={{
                                 height: "5rem"
@@ -114,7 +114,7 @@ export const AddSiteForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="funFacts">Fun Facts:</label>
                         <textarea
-                            required autoFocus
+                            required 
                             type="text"
                             style={{
                                 height: "5rem"
@@ -136,7 +136,7 @@ export const AddSiteForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="willSee">Typically Will See:</label>
                         <textarea
-                            required autoFocus
+                            required 
                             type="text"
                             style={{
                                 height: "5rem"
@@ -158,7 +158,7 @@ export const AddSiteForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="photo">Photo URL:</label>
                         <input
-                            required autoFocus
+                            required 
                             type="text"
                             className="form-control-site"
                             placeholder="Add URL for photo"

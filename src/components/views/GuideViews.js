@@ -13,8 +13,8 @@ export const GuideViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>Shark Bait Dive Charters</h1>
-					<div>Everyone loves diving with Shark Bait!</div>
+					{/* <h1>Shark Bait Dive Charters</h1>
+					<div>Everyone loves diving with Shark Bait!</div> */}
 
 					<Outlet />
 

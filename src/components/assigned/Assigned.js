@@ -44,7 +44,7 @@ export const Assigned = ({ requestObj, currentUser, guides, levels }) => {
                         requestObj.completed
                             ?
                             <>
-                                <div>Dive Completed</div>
+                                <div>🐙 Dive Completed</div>
                                 <div>Guide Compensation: {((requestObj?.diveSite?.price) / 2).toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
                             </>
                             : ""

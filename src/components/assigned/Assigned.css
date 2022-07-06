@@ -25,6 +25,14 @@
 .assigned__header {
     font-size: large;
     font-weight: bold;
+    color: rgb(43, 43, 180);
+}
+
+.assigned__header_list {
+    font-size: large;
+    font-weight: bold;
+    color: rgb(43, 43, 180);
+    text-decoration: underline 2px;
 }
 
 .client_list {
@@ -34,7 +42,7 @@
 }
 
 .client_list_name {
-    text-align: left;
+    text-align: center;
     text-decoration: none;
 }
 
@@ -72,4 +80,12 @@
 
 .client_detail_form {
     text-align: left;
+}
+
+.client_names {
+    position: relative;
+    font-size: large;
+    font-weight: 450;
+    color: darkblue;
+    margin: 1rem;
 }

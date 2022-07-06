@@ -14,8 +14,7 @@ export const ClientViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					{/* <h1>Shark Bait Dive Charters </h1>
-					<div>Come dive with us!</div> */}
+
 
 					<Outlet />
 				</>

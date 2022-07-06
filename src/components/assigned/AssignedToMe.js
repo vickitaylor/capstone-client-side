@@ -42,11 +42,11 @@ export const AssignedToMe = () => {
         <>
 
             <h2>Dives Assigned To Me</h2>
-            <button onClick={() => navigate("/requests")}>Show All</button>
+            <button className="btn_test" onClick={() => navigate("/requests")}>Show All</button>
 
             <article className="all-assigned">
                 <aside className="clientList">
-                    <header className="assigned__header">Client List</header>
+                    <header className="assigned__header_list">Client List</header>
                     {
                         clients.map((client) => {
                             return <ul className="client_list" key={`client--${client.id}`}>

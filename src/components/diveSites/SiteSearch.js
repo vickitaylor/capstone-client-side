@@ -1,5 +1,5 @@
 
-export const SiteSearch = ({setFun}) => {
+export const SiteSearch = ({ setFun }) => {
     return (
         <div>
             <input className="search"
@@ -8,7 +8,7 @@ export const SiteSearch = ({setFun}) => {
                         setFun(changeEvent.target.value)
                     }
                 }
-            type="text" placeholder="Search Locations" />
+                type="text" placeholder="Search Locations" />
         </div>
     )
 } 

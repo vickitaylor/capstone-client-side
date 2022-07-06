@@ -66,7 +66,7 @@ export const RequestEdit = () => {
                         <div className="form-group">
                             <label className="label-req" htmlFor="date">Date:</label>
                             <input type="date"
-                                required autoFocus
+                                required 
                                 className="form-control"
                                 placeholder="Pick a date"
                                 value={request.date}
@@ -84,7 +84,7 @@ export const RequestEdit = () => {
                         <div className="form-group">
                             <label className="label-req" htmlFor="comments">Comments: </label>
                             <textarea
-                                required autoFocus
+                                required 
                                 type="text"
                                 style={{
                                     height: "10rem"
@@ -103,7 +103,7 @@ export const RequestEdit = () => {
                     </fieldset> 
 
                     <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
-                        className="btn">
+                        className="btn-rf">
                         Make Changes
                     </button>
                     <button onClick={() => navigate("/requests")}

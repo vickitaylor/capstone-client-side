@@ -60,7 +60,7 @@ export const EditSiteList = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="price">Price:</label>
                         <input type="number"
-                            required autoFocus
+                            required 
                             min="110.00" step="10.00"
                             className="form-control-site"
                             value={site.price}
@@ -78,7 +78,7 @@ export const EditSiteList = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="depth">Depth:</label>
                         <input type="number"
-                            required autoFocus
+                            required 
                             min="0.00" step="1" max="130"
                             className="form-control-site"
                             value={site.depth}
@@ -96,7 +96,7 @@ export const EditSiteList = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="description">Description:</label>
                         <textarea
-                            required autoFocus
+                            required 
                             type="text"
                             style={{
                                 height: "5rem"
@@ -117,7 +117,7 @@ export const EditSiteList = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="funFacts">Fun Facts:</label>
                         <textarea
-                            required autoFocus
+                            required 
                             type="text"
                             style={{
                                 height: "5rem"
@@ -139,7 +139,7 @@ export const EditSiteList = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="willSee">Typically Will See:</label>
                         <textarea
-                            required autoFocus
+                            required 
                             type="text"
                             style={{
                                 height: "5rem"
@@ -160,7 +160,7 @@ export const EditSiteList = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="photo">Photo URL:</label>
                         <input
-                            required autoFocus
+                            required 
                             type="text"
                             className="form-control-site"
                             value={site.url}

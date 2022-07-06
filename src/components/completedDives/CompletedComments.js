@@ -40,58 +40,59 @@ export const CompletedComments = () => {
 
     return (
         <>
-            <h2>🦑 How was your Dive? 🦑</h2>
-
-            <form>
-                <fieldset>
-                    <div className="form-group">
-                        <label className="label-req" htmlFor="comments">Review Comments:</label>
-                        <textarea
-                            required autoFocus
-                            type="text"
-                            style={{
-                                height: "5rem"
-                            }}
-                            className="form-control"
-                            placeholder="Review Comments"
-                            value={complete.completedComments}
-                            onChange={
-                                (event) => {
-                                    const copy = { ...complete }
-                                    copy.completedComments = event.target.value
-                                    setComplete(copy)
-                                }
-                            }></textarea>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div style={{ display: 'block', padding: 10 }}>
-                        <Box component="fieldset" mb={3} borderColor="transparent">
-                            <label className="label-req" htmlFor="rating">Rate your Dive:</label>
-                            <Rating
-                                name="Rating Label"
-                                value={complete.rating}
+            <section className="requestForm-all">
+                <form className="requestForm">
+                    <h2 className="requestForm__title">🦑 How was your Dive? 🦑</h2>
+                    <fieldset className="fieldset-req">
+                        <div className="form-group">
+                            <label className="label-req" htmlFor="comments">Review Comments:</label>
+                            <textarea
+                                required autoFocus
+                                type="text"
+                                style={{
+                                    height: "5rem"
+                                }}
+                                className="form-control"
+                                placeholder="Review Comments"
+                                value={complete.completedComments}
                                 onChange={
                                     (event) => {
                                         const copy = { ...complete }
-                                        copy.rating = parseInt(event.target.value)
+                                        copy.completedComments = event.target.value
                                         setComplete(copy)
-                                    }}
-                            />
-                        </Box>
-                    </div>
-                </fieldset>
+                                    }
+                                }></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset className="fieldset-req">
+                        <div style={{ display: 'block' }}>
+                            <Box component="fieldset" mb={3} borderColor="transparent">
+                                <label className="label-req" htmlFor="rating">Rate your Dive:</label><br />
+                                <Rating
+                                    name="Rating Label"
+                                    value={complete.rating}
+                                    onChange={
+                                        (event) => {
+                                            const copy = { ...complete }
+                                            copy.rating = parseInt(event.target.value)
+                                            setComplete(copy)
+                                        }}
+                                />
+                            </Box>
+                        </div>
+                    </fieldset>
 
-                <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
-                    className="btn">
-                    Make Changes
-                </button>
-                <button onClick={() => navigate("/completed")}
-                    className="btn-rf">
-                    Cancel
-                </button>
+                    <button onClick={(clickEvent) => saveButtonClick(clickEvent)}
+                        className="btn-rf">
+                        Make Changes
+                    </button>
+                    <button onClick={() => navigate("/completed")}
+                        className="btn-rf">
+                        Cancel
+                    </button>
 
-            </form>
+                </form>
+            </section>
         </>
     )
 }

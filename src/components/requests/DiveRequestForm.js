@@ -68,7 +68,7 @@ export const DiveRequestForm = () => {
                         <div className="form-group">
                             <label className="label-req" htmlFor="date">Date:</label><br />
                             <input type="date"
-                                required autoFocus
+                                required 
                                 className="form-control"
                                 placeholder="Pick a date"
                                 value={request.date}
@@ -86,7 +86,7 @@ export const DiveRequestForm = () => {
                         <div className="form-group">
                             <label className="label-req">Certification Depth:</label><br />
 
-                            <input required autoFocus type="radio" className="req-form-control"
+                            <input required type="radio" className="req-form-control"
                                 name="certification" id="60"
                                 value={request.certification}
                                 onChange={
@@ -96,7 +96,7 @@ export const DiveRequestForm = () => {
                                         addRequest(copy)
                                     }} />
                             <label className="radioBtn" htmlFor="yes">60</label>
-                            <input required autoFocus type="radio" className="req-form-control"
+                            <input required type="radio" className="req-form-control"
                                 name="certification" id="130" value={request.certification} onChange={
                                     (event) => {
                                         const copy = { ...request }

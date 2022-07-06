@@ -35,7 +35,7 @@ export const getUsers = () => {
 }
 
 export const getCompletedDives = () => {
-    return fetch(`http://localhost:8088/diveRequests?_expand=diveSite&_expand=user&completed=true`)
+    return fetch(`http://localhost:8088/diveRequests?_expand=diveSite&_expand=user&completed=true&_sort=date&_order=desc`)
         .then(res => res.json())
 }
 

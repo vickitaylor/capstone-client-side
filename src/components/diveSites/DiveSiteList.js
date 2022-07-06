@@ -4,7 +4,7 @@ import { getSites } from "../ApiManager"
 import "./DiveSites.css"
 
 
-export const DiveSiteList = ({ siteSearchState}) => {
+export const DiveSiteList = ({ siteSearchState }) => {
 
     const [sites, setSites] = useState([])
     const [filteredSites, setFiltered] = useState([])
@@ -43,47 +43,50 @@ export const DiveSiteList = ({ siteSearchState}) => {
 
     return (
         <>
-            {
-                charterUserObject.staff
+            <section>
 
-                    ? <button className="btn" onClick={() => navigate("/sites/create")}>Add Site</button>
-                    : ""
-
-            }
-
-            <h2>Where we Dive!!</h2>
-
-            <article className="divesites">
+                <h2>Where We Dive!!</h2>
                 {
-                    filteredSites.map(site => {
-                        return <section className="site" key={`site--${site.id}`}>
-                            {
-                                charterUserObject.staff
-                                    ? <header className="site__header">
-                                        <Link to={`/sites/${site.id}/edit`}>{site.name}</Link>
-                                    </header>
-                                    : <header className="site__header">{site.name}</header>
-                            }
+                    charterUserObject.staff
 
-                            <div className="flip-card">
-                                <div className="flip-card-inner">
-                                    <div className="flip-card-front">
-                                        <img className="photos" src={site.url} alt={site.name} />
-                                    </div>
-                                    <div className="flip-card-back">
-                                        <br />
-                                        <div>Depth: {site.depth} feet</div><br />
-                                        <div>Price for 2 Dives on Site: {site.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div><br />
-                                        <div>{site.description}</div><br />
-                                        <div>Fun Facts: {site.funFacts}</div><br />
-                                        <div>Typically Can See: {site.willSee}</div>
+                        ? <button className="btn_test" onClick={() => navigate("/sites/create")}>Add Site</button>
+                        : ""
+
+                }
+
+                <article className="divesites">
+                    {
+                        filteredSites.map(site => {
+                            return <section className="site" key={`site--${site.id}`}>
+                                {
+                                    charterUserObject.staff
+                                        ? <header className="site__header">
+                                            <Link to={`/sites/${site.id}/edit`}>{site.name}</Link>
+                                        </header>
+                                        : <header className="site__header">{site.name}</header>
+                                }
+
+                                <div className="flip-card">
+                                    <div className="flip-card-inner">
+                                        <div className="flip-card-front">
+                                            <img className="photos" src={site.url} alt={site.name} />
+                                        </div>
+                                        <div className="flip-card-back">
+                                            <br />
+                                            <div>Depth: {site.depth} feet</div><br />
+                                            <div>Price for 2 Dives on Site: {site.price.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div><br />
+                                            <div>{site.description}</div><br />
+                                            <div>Fun Facts: {site.funFacts}</div><br />
+                                            <div>Typically Can See: {site.willSee}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
-                    })
-                }
-            </article>
+                            </section>
+                        })
+                    }
+                </article>
+
+            </section>
         </>
     )
 } 
