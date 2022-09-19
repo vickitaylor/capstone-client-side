@@ -32,7 +32,6 @@ export const EditSiteList = () => {
             })
     }
 
-
     return (
         <section className="requestForm-all">
             <form className="siteForm">

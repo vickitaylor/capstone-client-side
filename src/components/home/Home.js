@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUsers } from "../ApiManager"
 import ImageFadeIn from "react-image-fade-in";
+import { Link } from "react-router-dom"
 import "./home.css"
 
 /*
@@ -38,7 +39,9 @@ export const Home = () => {
             <h1 className="welcome">Welcome Back {currentUser.name}!</h1>
         <article className="home__page" >
             
+            <Link to="/sites">
             <ImageFadeIn src="images/logo.png" alt="logo" className="logo" opacityTransition={4} />
+            </Link>
 
         </article>
             </>

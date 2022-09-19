@@ -1,3 +1,5 @@
+// json-server database.json -p 8088 -w
+
 // GET requests
 export const getSites = () => {
     return fetch(`http://localhost:8088/diveSites?_sort=siteName`)

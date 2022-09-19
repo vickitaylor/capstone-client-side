@@ -64,6 +64,25 @@ export const RequestEdit = () => {
 
                     <fieldset>
                         <div className="form-group">
+                            <label className="label-req" htmlFor="site">Site Name:</label>
+                            <select className="select" id="site" required autoFocus
+                                onChange={(event) => {
+                                    const copy = { ...request }
+                                    copy.diveSiteId = parseInt(event.target.value)
+                                    updateRequest(copy)
+                                }}>
+                                <option value="0">Choose Site:</option>
+                                {sites.map(site => {
+                                    return <option value={site.id} key={`site--${site.id}`}>{site.name}</option>
+                                })}
+                            </select>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div className="form-group">
                             <label className="label-req" htmlFor="date">Date:</label>
                             <input type="date"
                                 required 
