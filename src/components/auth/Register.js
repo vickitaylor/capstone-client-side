@@ -12,7 +12,7 @@ export const Register = (props) => {
     let navigate = useNavigate()
 
     const registerNewUser = () => {
-        return fetch("http://localhost:8088/users", {
+        return fetch("https://shark-bait-api.herokuapp.com/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -34,7 +34,7 @@ export const Register = (props) => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        return fetch(`http://localhost:8088/users?email=${customer.email}`)
+        return fetch(`https://shark-bait-api.herokuapp.com/users?email=${customer.email}`)
             .then(res => res.json())
             .then(response => {
                 if (response.length > 0) {

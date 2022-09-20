@@ -2,74 +2,74 @@
 
 // GET requests
 export const getSites = () => {
-    return fetch(`http://localhost:8088/diveSites?_sort=siteName`)
+    return fetch(`https://shark-bait-api.herokuapp.com/diveSites?_sort=siteName`)
         .then(res => res.json())
 }
 
 export const getRequests = () => {
-    return fetch(`http://localhost:8088/diveRequests?_expand=user&_expand=diveSite&_embed=assignedDives&_sort=date`)
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests?_expand=user&_expand=diveSite&_embed=assignedDives&_sort=date`)
         .then(res => res.json())
 }
 
 export const getEditRequests = (requestId) => {
-    return fetch(`http://localhost:8088/diveRequests/${requestId}`)
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests/${requestId}`)
         .then(res => res.json())
 }
 
 export const getGuides = () => {
-    return fetch(`http://localhost:8088/guides?_expand=user`)
+    return fetch(`https://shark-bait-api.herokuapp.com/guides?_expand=user`)
         .then(res => res.json())
 }
 
 export const getAssigns = (assignId) => {
-    return fetch(`http://localhost:8088/diveRequests/${assignId}?_expand=diveSite&_expand=user`)
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests/${assignId}?_expand=diveSite&_expand=user`)
         .then(res => res.json())
 }
 
 export const getAssignedDives = () => {
-    return fetch(`http://localhost:8088/assignedDives?_expand=guide`)
+    return fetch(`https://shark-bait-api.herokuapp.com/assignedDives?_expand=guide`)
         .then(res => res.json())
 }
 
 export const getUsers = () => {
-    return fetch(`http://localhost:8088/users`)
+    return fetch(`https://shark-bait-api.herokuapp.com/users`)
         .then(res => res.json())
 }
 
 export const getCompletedDives = () => {
-    return fetch(`http://localhost:8088/diveRequests?_expand=diveSite&_expand=user&completed=true&_sort=date&_order=desc`)
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests?_expand=diveSite&_expand=user&completed=true&_sort=date&_order=desc`)
         .then(res => res.json())
 }
 
 export const getEditSites = (siteId) => {
-    return fetch(`http://localhost:8088/diveSites/${siteId}`)
+    return fetch(`https://shark-bait-api.herokuapp.com/diveSites/${siteId}`)
         .then(res => res.json())
 }
 
 export const getClients = () => {
-    return fetch(`http://localhost:8088/users?isStaff=false`)
+    return fetch(`https://shark-bait-api.herokuapp.com/users?isStaff=false`)
         .then(res => res.json())
 }
 
 export const getClient = (clientId) => {
-    return fetch(`http://localhost:8088/users/${clientId}`)
+    return fetch(`https://shark-bait-api.herokuapp.com/users/${clientId}`)
         .then(res => res.json())
 }
 
 export const getLevels = () => {
-    return fetch(`http://localhost:8088/skillLevels`)
+    return fetch(`https://shark-bait-api.herokuapp.com/skillLevels`)
     .then(res => res.json())
 }
 
 export const getClientDetails = (clientId) => {
-    return fetch(`http://localhost:8088/users/${clientId}?_embed=diveRequests`)
+    return fetch(`https://shark-bait-api.herokuapp.com/users/${clientId}?_embed=diveRequests`)
     .then(res => res.json())
 }
 
 
 // POST requests 
 export const saveSites = (sites) => {
-    return fetch(`http://localhost:8088/diveSites`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/diveSites`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -80,7 +80,7 @@ export const saveSites = (sites) => {
 }
 
 export const saveRequests = (request) => {
-    return fetch(`http://localhost:8088/diveRequests`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -91,7 +91,7 @@ export const saveRequests = (request) => {
 }
 
 export const saveAssigned = (assigned) => {
-    return fetch(`http://localhost:8088/assignedDives`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/assignedDives`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -103,7 +103,7 @@ export const saveAssigned = (assigned) => {
 
 // PUT requests 
 export const saveRequestEdit = (requestId, request) => {
-    return fetch(`http://localhost:8088/diveRequests/${requestId}`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests/${requestId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -114,7 +114,7 @@ export const saveRequestEdit = (requestId, request) => {
 }
 
 export const saveCompletedRequest = (requestObj, reqComplete) => {
-    return fetch(`http://localhost:8088/diveRequests/${requestObj.id}`,
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests/${requestObj.id}`,
         {
             method: "PUT",
             headers: {
@@ -126,7 +126,7 @@ export const saveCompletedRequest = (requestObj, reqComplete) => {
 }
 
 export const saveSiteEdit = (siteId, site) => {
-    return fetch(`http://localhost:8088/diveSites/${siteId}`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/diveSites/${siteId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -137,7 +137,7 @@ export const saveSiteEdit = (siteId, site) => {
 }
 
 export const saveUserEdit = (clientId, user) => {
-    return fetch(`http://localhost:8088/users/${clientId}`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/users/${clientId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -150,7 +150,7 @@ export const saveUserEdit = (clientId, user) => {
 
 // DELETE requests 
 export const deleteRequest = (requestObj) => {
-    return fetch(`http://localhost:8088/diveRequests/${requestObj.id}`, {
+    return fetch(`https://shark-bait-api.herokuapp.com/diveRequests/${requestObj.id}`, {
         method: "DELETE",
     })
 }

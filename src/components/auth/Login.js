@@ -11,7 +11,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch(`http://localhost:8088/users?email=${email}`)
+        return fetch(`https://shark-bait-api.herokuapp.com/users?email=${email}`)
             .then(res => res.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
