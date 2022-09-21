@@ -70,16 +70,6 @@ export const Register = (props) => {
                         type="email" id="email" className="form-control logon"
                         placeholder="Email address" required />
                 </fieldset>
-                <fieldset>
-                    <input onChange={(evt) => {
-                        const copy = {...customer}
-                        copy.isStaff = evt.target.checked
-                        setCustomer(copy)
-                    }}
-                        type="checkbox" id="isStaff" />
-                    <label htmlFor="email"> I am a guide </label>
-                </fieldset>
-                <fieldset>
                     <button type="submit"> Register </button>
                     <button className="cancel-btn" onClick={() => navigate("/login")}>
                 Cancel
