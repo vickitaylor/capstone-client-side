@@ -6,7 +6,7 @@ export const Register = (props) => {
     const [customer, setCustomer] = useState({
         email: "",
         name: "",
-        isStaff: false, 
+        isStaff: false,
         skillLevelId: 1
     })
     let navigate = useNavigate()
@@ -49,7 +49,7 @@ export const Register = (props) => {
     }
 
     const updateCustomer = (evt) => {
-        const copy = {...customer}
+        const copy = { ...customer }
         copy[evt.target.id] = evt.target.value
         setCustomer(copy)
     }
@@ -61,8 +61,8 @@ export const Register = (props) => {
                 <fieldset>
                     <label className="label--login" htmlFor="name"> Full Name </label>
                     <input onChange={updateCustomer}
-                           type="text" id="name" className="form-control logon"
-                           placeholder="Enter your first and last name" required autoFocus />
+                        type="text" id="name" className="form-control logon"
+                        placeholder="Enter your first and last name" required autoFocus />
                 </fieldset>
                 <fieldset>
                     <label className="label--login" htmlFor="email"> Email address </label>
@@ -70,11 +70,10 @@ export const Register = (props) => {
                         type="email" id="email" className="form-control logon"
                         placeholder="Email address" required />
                 </fieldset>
-                    <button type="submit"> Register </button>
-                    <button className="cancel-btn" onClick={() => navigate("/login")}>
-                Cancel
-            </button>
-                </fieldset>
+                <button type="submit"> Register </button>
+                <button className="cancel-btn" onClick={() => navigate("/login")}>
+                    Cancel
+                </button>
             </form>
         </main>
     )
