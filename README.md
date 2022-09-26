@@ -4,7 +4,8 @@
 Shark Bait Dive Charters is my fictional dive company based out of the Florida Keys. Users can log in and book a dive with the company, view the sites where the company goes, and once the dive is completed, they can rate their dive and leave a review.  The employee side, can edit the location list, assign dives to the guides, complete the dives, and rate the diver based on their skill proficient, so when the diver rebooks, the assigned guide has an idea of their skill set.
 
 
-### To use app visit: [Shark Bait](https://shark-bait8.herokuapp.com/login/)
+### Deployed Application:
+[Shark Bait](https://shark-bait8.herokuapp.com/login/)
 
 To login to an employee account use: tuna@turner.com
 
