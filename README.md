@@ -1,71 +1,34 @@
-# Getting Started with Create React App
+# Shark Bait Dive Charters
+## Client Side Capstone for Nashville Software School
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Shark Bait Dive Charters is my fictional dive company based out of the Florida Keys. Users can log in and book a dive with the company, view the sites where the company goes, and once the dive is completed, they can rate their dive and leave a review.  The employee side, can edit the location list, assign dives to the guides, complete the dives, and rate the diver based on their skill proficient, so when the diver rebooks, the assigned guide has an idea of their skill set.
 
-## Available Scripts
 
-In the project directory, you can run:
+### To use app visit: [Shark Bait](https://shark-bait8.herokuapp.com/login/)
 
-### `npm start`
+To login to an employee account use: tuna@turner.com
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To login with a client account use: bubble@fett.com
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1) Clone the repository ` git clone git@github.com:vickitaylor/capstone-client-side.git`
+2) cd into the corresponding directory `cd capstone-client-side`
+3) `npm install` 
+4) User API for the project located at [API LINK](https://github.com/vickitaylor/capstone-cs-api) with instructions to clone and run
+5) `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tech Stack
+* HTML
+* CSS
+* JavaScript
+* React
+* JSON Server
+* Git
+* Github
 
-### `npm run build`
+### Intial Wireframe
+[Intial Wireframe designed in Figma](https://www.figma.com/file/4myV7J71zZO09alMAUQ6IS/Client-Side-Capstone?node-id=0%3A1)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# capstone-client-side
+### Intial ERD
+[Intial ERD](https://dbdiagram.io/d/62a016bb54ce2635277e904e)
